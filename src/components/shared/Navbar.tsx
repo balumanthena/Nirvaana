@@ -48,6 +48,7 @@ import {
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -156,7 +157,7 @@ export function Navbar() {
                         </Button>
                     </div>
 
-                    <Sheet>
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild className="md:hidden">
                             <Button variant="ghost" size="icon" className="text-slate-900">
                                 <Menu className="h-7 w-7" />
@@ -187,6 +188,7 @@ export function Navbar() {
                                                                     <Link
                                                                         key={child.name}
                                                                         href={child.href}
+                                                                        onClick={() => setIsMobileMenuOpen(false)}
                                                                         className="text-lg text-slate-500 hover:text-primary transition-colors py-1"
                                                                     >
                                                                         {child.name}
@@ -199,6 +201,7 @@ export function Navbar() {
                                                     <div className="py-4">
                                                         <Link
                                                             href={link.href}
+                                                            onClick={() => setIsMobileMenuOpen(false)}
                                                             className={cn(
                                                                 "block text-2xl font-serif font-medium transition-colors",
                                                                 (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
