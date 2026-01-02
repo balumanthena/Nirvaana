@@ -47,7 +47,7 @@ export default async function ServicePage({ params }: PageProps) {
                         </p>
 
                         <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 mb-8">
-                            <h3 className="font-semibold text-slate-900 mb-4">What's included:</h3>
+                            <h3 className="font-semibold text-slate-900 mb-4">What&apos;s included:</h3>
                             <ul className="space-y-3">
                                 <li className="flex items-start gap-3">
                                     <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />

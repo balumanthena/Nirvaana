@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
+    await params;
     return (
         <main className="pt-32 pb-20">
             <div className="container mx-auto px-4 md:px-6 max-w-3xl">
@@ -13,7 +13,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                 <article className="prose prose-lg prose-slate max-w-none">
                     <h1 className="font-serif font-bold text-slate-900 leading-tight">
-                        Why 'Fee-Only' is the Future of Financial Advice
+                        Why &apos;Fee-Only&apos; is the Future of Financial Advice
                     </h1>
                     <div className="flex items-center text-sm text-slate-500 mb-8">
                         <span>October 10, 2024</span>

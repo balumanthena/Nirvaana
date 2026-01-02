@@ -35,7 +35,7 @@ export function TestimonialCarousel() {
                                 <CardContent className="flex flex-col gap-4 p-6">
                                     <Quote className="w-8 h-8 text-primary/20" />
                                     <p className="text-muted-foreground italic leading-relaxed">
-                                        "{testimonial.content}"
+                                        &quot;{testimonial.content}&quot;
                                     </p>
                                     <div className="flex items-center gap-3 mt-2">
                                         <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center font-bold text-primary text-sm">

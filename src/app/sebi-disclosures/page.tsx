@@ -45,7 +45,7 @@ export default function DisclosuresPage() {
                 <div className="mb-12">
                     <h2 className="text-2xl font-serif font-bold text-slate-900 mb-4">Grievance Redressal</h2>
                     <p className="text-slate-600 mb-4">
-                        Client's queries / complaints may be addressed to us at <a href={`mailto:${CONFIG.EMAIL}`} className="text-emerald-600 font-medium">{CONFIG.EMAIL}</a>. We will try to resolve the same within a reasonable timeframe.
+                        Client&apos;s queries / complaints may be addressed to us at <a href={`mailto:${CONFIG.EMAIL}`} className="text-emerald-600 font-medium">{CONFIG.EMAIL}</a>. We will try to resolve the same within a reasonable timeframe.
                     </p>
                     <p className="text-slate-600 mb-4">
                         If the grievance is not redressed within a reasonable time, you may lodge your complaint online with SEBI at <Link href="https://scores.gov.in" target="_blank" className="text-emerald-600 font-medium underline">SCORES</Link> (SEBI Complaints Redress System).

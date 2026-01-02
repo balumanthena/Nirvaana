@@ -5,7 +5,7 @@ import Link from "next/link";
 import NextImage from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { CONFIG } from "@/content/config";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";

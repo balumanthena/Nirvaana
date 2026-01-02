@@ -115,7 +115,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <span className="text-sm font-bold tracking-wider text-primary uppercase mb-2 block">Client Stories</span>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
-              Don't just take our word for it.
+              Don&apos;t just take our word for it.
             </h2>
           </div>
           <TestimonialCarousel />
