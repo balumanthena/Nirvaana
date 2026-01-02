@@ -1,19 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/content/config";
 
 export function CTASection() {
     return (
-        <section className="relative isolated overflow-hidden bg-slate-950 py-24 sm:py-32">
-            {/* Background Glow Effect */}
-            <div className="absolute left-[50%] top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
-                <div
-                    className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-                    style={{
-                        clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        background: 'linear-gradient(to top right, var(--color-primary), #4f46e5)'
-                    }}
+        <section className="relative isolated overflow-hidden py-24 sm:py-32">
+            {/* Background Image */}
+            <div className="absolute inset-0 -z-20">
+                <Image
+                    src="/images/Hero4.png"
+                    alt="Financial Future"
+                    fill
+                    className="object-cover object-center"
+                    quality={90}
                 />
+                <div className="absolute inset-0 bg-slate-950/80 mix-blend-multiply" />
             </div>
 
             <div className="container mx-auto px-4 md:px-6 text-center relative z-10">

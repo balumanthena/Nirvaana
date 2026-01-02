@@ -38,6 +38,13 @@ const NAV_LINKS = [
     { name: "Contact", href: "/contact" },
 ];
 
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -151,52 +158,75 @@ export function Navbar() {
 
                     <Sheet>
                         <SheetTrigger asChild className="md:hidden">
-                            <Button variant="ghost" size="icon">
-                                <Menu className="h-6 w-6" />
+                            <Button variant="ghost" size="icon" className="text-slate-900">
+                                <Menu className="h-7 w-7" />
                                 <span className="sr-only">Toggle menu</span>
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-[300px] overflow-y-auto">
-                            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                            <div className="flex flex-col gap-6 mt-8">
-                                <div className="flex flex-col gap-4">
-                                    {NAV_LINKS.map((link) => (
-                                        <div key={link.name} className="flex flex-col gap-2">
-                                            {link.children ? (
-                                                <>
-                                                    <span className="text-lg font-medium text-slate-900 border-b pb-1 mb-1">
-                                                        {link.name}
-                                                    </span>
-                                                    <div className="flex flex-col gap-3 pl-4 border-l-2 border-slate-100 ml-1">
-                                                        {link.children.map((child) => (
-                                                            <Link
-                                                                key={child.name}
-                                                                href={child.href}
-                                                                className="text-base text-slate-600 hover:text-primary"
-                                                            >
-                                                                {child.name}
-                                                            </Link>
-                                                        ))}
-                                                    </div>
-                                                </>
-                                            ) : (
-                                                <Link
-                                                    href={link.href}
-                                                    className="text-lg font-medium text-slate-700 hover:text-primary"
-                                                >
-                                                    {link.name}
-                                                </Link>
-                                            )}
-                                        </div>
-                                    ))}
+                        <SheetContent side="right" className="w-[350px] sm:w-[540px] p-0 border-l border-white/20 bg-white/95 backdrop-blur-xl">
+                            <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                            <div className="flex flex-col h-full">
+                                {/* Header inside sheet */}
+                                <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+                                    <span className="font-serif text-xl font-bold text-slate-900">Menu</span>
+                                    {/* Close button is automatically handled by SheetContent, but we can add branding here if needed */}
                                 </div>
-                                <div className="flex flex-col gap-3 mt-4">
-                                    <Button className="w-full" asChild>
-                                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Schedule Call</Link>
+
+                                <div className="flex-1 overflow-y-auto py-6 px-6">
+                                    <Accordion type="single" collapsible className="w-full space-y-2">
+                                        {NAV_LINKS.map((link, index) => (
+                                            <div key={link.name}>
+                                                {link.children ? (
+                                                    <AccordionItem value={`item-${index}`} className="border-b-0">
+                                                        <AccordionTrigger className="hover:no-underline py-4 text-2xl font-serif font-medium text-slate-900 data-[state=open]:text-primary transition-colors">
+                                                            {link.name}
+                                                        </AccordionTrigger>
+                                                        <AccordionContent>
+                                                            <div className="flex flex-col gap-3 pl-2 pb-2">
+                                                                {link.children.map((child) => (
+                                                                    <Link
+                                                                        key={child.name}
+                                                                        href={child.href}
+                                                                        className="text-lg text-slate-500 hover:text-primary transition-colors py-1"
+                                                                    >
+                                                                        {child.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </AccordionContent>
+                                                    </AccordionItem>
+                                                ) : (
+                                                    <div className="py-4">
+                                                        <Link
+                                                            href={link.href}
+                                                            className={cn(
+                                                                "block text-2xl font-serif font-medium transition-colors",
+                                                                (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
+                                                                    ? "text-primary"
+                                                                    : "text-slate-900 hover:text-primary"
+                                                            )}
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </Accordion>
+                                </div>
+
+                                {/* Footer CTA */}
+                                <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col gap-3">
+                                    <Button size="lg" className="w-full text-lg h-14" asChild>
+                                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Schedule a Free Call</Link>
                                     </Button>
-                                    <Button variant="outline" className="w-full" asChild>
-                                        <Link href={CONFIG.WHATSAPP_URL} target="_blank">WhatsApp</Link>
+                                    <Button variant="outline" size="lg" className="w-full text-lg h-14 bg-white" asChild>
+                                        <Link href={CONFIG.WHATSAPP_URL} target="_blank">WhatsApp Us</Link>
                                     </Button>
+
+                                    <div className="mt-4 text-center">
+                                        <p className="text-xs text-slate-400 uppercase tracking-widest">Nirvaana Financial Services</p>
+                                    </div>
                                 </div>
                             </div>
                         </SheetContent>
