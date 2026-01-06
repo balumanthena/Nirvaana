@@ -35,7 +35,7 @@ export default function ServicesPage() {
                         Book a free discovery call and we will help you identify the right financial path for you.
                     </p>
                     <Button size="lg" asChild>
-                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Book Discovery Call</Link>
+                        <Link href="/schedule">Book Discovery Call</Link>
                     </Button>
                 </div>
             </div>

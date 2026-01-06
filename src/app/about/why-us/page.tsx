@@ -11,7 +11,7 @@ export default function WhyUsPage() {
                         Why Choose {CONFIG.BRAND_NAME}?
                     </h1>
                     <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-                        We are a team of SEBI Registered Investment Advisors dedicated to providing
+                        We are a team of Investment Advisors dedicated to providing
                         unbiased, data-driven, and fee-only financial advice.
                     </p>
 
@@ -64,7 +64,7 @@ export default function WhyUsPage() {
 
                     <div className="mt-16 text-center">
                         <Button size="lg" asChild>
-                            <Link href={CONFIG.CALENDLY_URL} target="_blank">Schedule a Chat with Us</Link>
+                            <Link href="/schedule">Schedule a Chat with Us</Link>
                         </Button>
                     </div>
 

@@ -87,7 +87,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center gap-2">
                     <div className="relative h-20 w-80">
                         <NextImage
-                            src="/images/nirvaana-logo-v2.png"
+                            src="/images/Nirvanawealthplannerlogo.png"
                             alt="Nirvaana Financial Services"
                             fill
                             className="object-contain object-left"
@@ -151,7 +151,7 @@ export function Navbar() {
                             </Link>
                         </Button>
                         <Button asChild>
-                            <Link href={CONFIG.CALENDLY_URL} target="_blank">
+                            <Link href="/schedule">
                                 Schedule Call
                             </Link>
                         </Button>
@@ -221,7 +221,7 @@ export function Navbar() {
                                 {/* Footer CTA */}
                                 <div className="p-6 bg-slate-50 border-t border-slate-100 flex flex-col gap-3">
                                     <Button size="lg" className="w-full text-lg h-14" asChild>
-                                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Schedule a Free Call</Link>
+                                        <Link href="/schedule">Schedule a Free Call</Link>
                                     </Button>
                                     <Button variant="outline" size="lg" className="w-full text-lg h-14 bg-white" asChild>
                                         <Link href={CONFIG.WHATSAPP_URL} target="_blank">WhatsApp Us</Link>

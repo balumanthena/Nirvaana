@@ -19,6 +19,7 @@ export default function Home() {
       <Hero />
 
       {/* B) Question Slider Section */}
+      {/* B) Question Slider Section
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
@@ -32,6 +33,7 @@ export default function Home() {
           <QuestionCards />
         </div>
       </section>
+      */}
 
       {/* C) Values Section */}
       <section className="py-20 bg-slate-50/50">

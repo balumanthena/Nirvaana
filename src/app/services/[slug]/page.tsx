@@ -66,7 +66,7 @@ export default async function ServicePage({ params }: PageProps) {
 
                         <div className="flex gap-4">
                             <Button size="lg" asChild>
-                                <Link href={CONFIG.CALENDLY_URL} target="_blank">Get Started</Link>
+                                <Link href="/schedule">Get Started</Link>
                             </Button>
                         </div>
                     </div>

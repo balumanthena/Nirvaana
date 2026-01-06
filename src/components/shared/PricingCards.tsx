@@ -47,7 +47,7 @@ export function PricingCards() {
                             className="w-full"
                             variant={plan.popular ? "default" : "outline"}
                         >
-                            <Link href={CONFIG.CALENDLY_URL} target="_blank">{plan.cta}</Link>
+                            <Link href="/schedule">{plan.cta}</Link>
                         </Button>
                     </CardFooter>
                 </Card>

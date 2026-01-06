@@ -21,7 +21,7 @@ export default function ProcessPage() {
 
                 <div className="mt-20 text-center">
                     <Button size="lg" asChild>
-                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Start the Process</Link>
+                        <Link href="/schedule">Start the Process</Link>
                     </Button>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: `${CONFIG.BRAND_NAME} | Fee-Only SEBI Registered Investment Advisor`,
+  title: `${CONFIG.BRAND_NAME} | Fee-Only Investment Advisor`,
   description: CONFIG.TAGLINE,
   openGraph: {
     title: CONFIG.BRAND_NAME,

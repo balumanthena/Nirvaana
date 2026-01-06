@@ -28,7 +28,7 @@ export function CTASection() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <Button size="lg" className="h-14 px-8 w-full sm:w-auto text-lg bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300" asChild>
-                        <Link href={CONFIG.CALENDLY_URL} target="_blank">Schedule a Free Call</Link>
+                        <Link href="/schedule">Schedule a Free Call</Link>
                     </Button>
                     <Button size="lg" variant="outline" className="h-14 px-8 w-full sm:w-auto text-lg border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:text-white transition-all duration-300" asChild>
                         <Link href={CONFIG.WHATSAPP_URL} target="_blank">WhatsApp Us</Link>
