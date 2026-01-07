@@ -35,7 +35,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <Link href="/services" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Services
                 </Link>
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                     <div>
                         <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                             <Icon className="w-8 h-8 text-primary" />
@@ -107,7 +107,7 @@ export default async function ServicePage({ params }: PageProps) {
                                                     <span className="text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors uppercase tracking-wider flex items-center gap-1">
                                                         Next <ArrowLeft className="w-3 h-3 rotate-180" />
                                                     </span>
-                                                    <span className="text-base font-serif font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 max-w-[150px]">
+                                                    <span className="text-sm md:text-base font-serif font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 max-w-[150px]">
                                                         {nextService.title}
                                                     </span>
                                                 </Link>
@@ -123,7 +123,7 @@ export default async function ServicePage({ params }: PageProps) {
 
                     {/* Visual Placeholder for Service Image */}
                     {/* Visual Placeholder for Service Image */}
-                    <div className="bg-slate-200 rounded-3xl aspect-square lg:aspect-auto lg:h-full min-h-[400px] overflow-hidden relative">
+                    <div className="bg-slate-200 rounded-3xl aspect-square lg:aspect-auto lg:h-full min-h-[300px] lg:min-h-[400px] overflow-hidden relative">
                         {/* @ts-ignore */}
                         {service.image ? (
                             /* @ts-ignore */

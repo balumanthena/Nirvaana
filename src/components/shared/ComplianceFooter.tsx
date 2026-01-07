@@ -9,9 +9,9 @@ export function ComplianceFooter() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-4 gap-8 mb-12">
                     <div className="md:col-span-2">
-                        <Link href="/" className="mb-6 block relative h-24 w-72">
+                        <Link href="/" className="mb-6 block relative h-16 w-48 md:h-24 md:w-72">
                             <NextImage
-                                src="/images/Nirvanawealthplannerlogo.png"
+                                src="/images/logologo.png"
                                 alt={CONFIG.BRAND_NAME}
                                 fill
                                 className="object-contain object-left"

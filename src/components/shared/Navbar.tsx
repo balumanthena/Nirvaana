@@ -85,9 +85,9 @@ export function Navbar() {
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
-                    <div className="relative h-20 w-80">
+                    <div className="relative h-12 w-48 md:h-20 md:w-80">
                         <NextImage
-                            src="/images/Nirvanawealthplannerlogo.png"
+                            src="/images/logologo.png"
                             alt="Nirvaana Financial Services"
                             fill
                             className="object-contain object-left"
