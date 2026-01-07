@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -85,12 +86,15 @@ export function Hero() {
                 <CarouselContent className="!ml-0 h-full">
                     {HERO_SLIDES.map((slide, index) => (
                         <CarouselItem key={index} className="!pl-0 h-full w-full relative bg-gray-900">
-                            {/* Image Background with Slow Zoom */}
-                            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
-                                style={{
-                                    backgroundImage: `url(${slide.image})`,
-                                    animationDuration: '20s'
-                                }}
+                            <NextImage
+                                src={slide.image}
+                                alt={slide.title}
+                                fill
+                                className={cn(
+                                    "object-cover transition-transform duration-[20s]",
+                                    (index + 1 === current) ? "scale-110" : "scale-100"
+                                )}
+                                priority={index === 0}
                             />
                             {/* Cinematic Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
@@ -98,14 +102,14 @@ export function Hero() {
                             {/* Slide Content */}
                             {slide.title && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-                                    <h2
+                                    <h1
                                         className={cn(
                                             "text-3xl md:text-5xl lg:text-6xl font-serif text-white text-center font-medium tracking-wide mb-8 drop-shadow-lg max-w-4xl leading-tight opacity-0",
                                             (index + 1 === current) && "animate-fade-up"
                                         )}
                                     >
                                         {slide.title}
-                                    </h2>
+                                    </h1>
                                     {slide.cta && (
                                         <div
                                             className={cn(

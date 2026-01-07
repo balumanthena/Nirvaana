@@ -19,10 +19,10 @@ export default function TeamPage() {
                     <div className="bg-secondary p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center border border-border shadow-md max-w-3xl mx-auto">
                         <div className="w-40 h-40 bg-background rounded-full shrink-0 border-4 border-white shadow-sm overflow-hidden">
                             {/* Placeholder for real team image if available later */}
-                            <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-bold text-3xl">B</div>
+                            <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-bold text-3xl">S</div>
                         </div>
                         <div className="text-center md:text-left">
-                            <h3 className="text-2xl font-bold text-foreground mb-2">Balakrishna</h3>
+                            <h3 className="text-2xl font-bold text-foreground mb-2">Srikanth Revoju</h3>
                             <p className="text-primary font-semibold mb-4">Founder & Principal Planner</p>
                             <p className="text-muted-foreground mb-6 leading-relaxed">
                                 Certified Financial Planner (CFP) with 10+ years of experience in capital markets.

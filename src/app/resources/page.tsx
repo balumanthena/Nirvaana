@@ -5,25 +5,25 @@ import { ArrowRight } from "lucide-react";
 // Placeholder posts
 const POSTS = [
     {
-        title: "Why 'Fee-Only' is the Future of Financial Advice",
-        excerpt: "Understand the difference between a distributor and an advisor, and why it matters for your wealth.",
-        date: "October 10, 2024",
-        slug: "why-fee-only-matters",
-        category: "Education"
-    },
-    {
-        title: "5 Common Mistakes High Net Worth Individuals Make",
-        excerpt: "Even smart people make money mistakes. Here are the top 5 pitfalls to avoid.",
-        date: "September 28, 2024",
-        slug: "top-5-hni-mistakes",
+        title: "Strategic Asset Allocation: The Key to Long-Term Wealth",
+        excerpt: "Why picking the right mix of assets matters more than picking individual stocks. A guide to balanced portfolio construction.",
+        date: "October 15, 2024",
+        slug: "strategic-asset-allocation",
         category: "Investing"
     },
     {
-        title: "The Magic of Compounding: Start Early, Finish Rich",
-        excerpt: "Time is your biggest asset. See how starting just 5 years early can double your corpus.",
-        date: "September 15, 2024",
-        slug: "magic-of-compounding",
-        category: "Basics"
+        title: "Comprehensive Tax Planning Guide for FY 2024-25",
+        excerpt: "Maximize your post-tax returns with smart planning. Covers old vs. new regime, tax-harvesting, and efficient investment vehicles.",
+        date: "October 1, 2024",
+        slug: "tax-planning-guide-2024",
+        category: "Taxation"
+    },
+    {
+        title: "The Psychology of Money: Behavior Over Intelligence",
+        excerpt: "Financial success is less about what you know and more about how you behave. Learn to master your financial emotions.",
+        date: "September 20, 2024",
+        slug: "psychology-of-money",
+        category: "Behavioral Finance"
     }
 ];
 
