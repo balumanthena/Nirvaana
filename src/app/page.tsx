@@ -13,7 +13,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col pt-24">
+    <main className="flex min-h-screen flex-col pt-16 md:pt-24">
 
       {/* A) Hero Section */}
       <Hero />
