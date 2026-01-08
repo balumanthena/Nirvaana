@@ -5,13 +5,14 @@ import { Navbar } from "@/components/shared/Navbar";
 import { ComplianceFooter } from "@/components/shared/ComplianceFooter";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { CONFIG } from "@/content/config";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: {
-    default: `${CONFIG.BRAND_NAME} | Investment Advisor`,
+    default: `${CONFIG.BRAND_NAME} | Financial Planning & Investment Advisor`,
     template: `%s | ${CONFIG.BRAND_NAME}`,
   },
   description: CONFIG.TAGLINE,
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: CONFIG.BRAND_NAME,
+    title: `${CONFIG.BRAND_NAME} | Financial Planning & Wealth Management`,
     description: CONFIG.TAGLINE,
     url: CONFIG.SITE_URL,
     siteName: CONFIG.BRAND_NAME,
@@ -32,19 +33,30 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/images/logologo.png', // Fallback or main OG image
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: CONFIG.BRAND_NAME,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: CONFIG.BRAND_NAME,
+    title: `${CONFIG.BRAND_NAME} | Financial Advisor`,
     description: CONFIG.TAGLINE,
     images: ['/images/logologo.png'],
   },
-  keywords: ["Investment Advisor", "Retirement Planning", "Wealth Management", "Financial Planning", "Karimnagar", "Bangalore", "Mutual Funds", "Goal Based Investing"],
+  keywords: [
+    "Financial Planner Karimnagar",
+    "Investment Advisor Bangalore",
+    "Retirement Planning India",
+    "Wealth Management Services",
+    "Insurance Analysis",
+    "Mutual Funds Distributor",
+    "Goal Based Investing",
+    "Tax Planning India",
+    "Risk Profiling",
+    "Family Office Services"
+  ],
   authors: [{ name: CONFIG.BRAND_NAME }],
   robots: {
     index: true,
@@ -57,6 +69,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'Add_Your_Google_Verification_Code_Here', // Placeholder
+  },
 };
 
 export default function RootLayout({
@@ -68,6 +83,16 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-slate-50 text-slate-900 overflow-x-hidden`}>
         <JsonLd />
+        {/* Google Analytics - Placeholder for ID */}
+        {/* <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script> */}
         <Navbar />
         {children}
         <ComplianceFooter />

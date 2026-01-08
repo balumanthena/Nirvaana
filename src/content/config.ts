@@ -1,6 +1,6 @@
 export const CONFIG = {
   BRAND_NAME: "Nirvana Wealth Planner",
-  TAGLINE: "Secure Today, Grow Tomorrow — Your Trusted Partner in Financial Freedom.",
+  TAGLINE: "Nirvana Wealth Planner: Your trusted partner for comprehensive financial planning, retirement strategies, insurance analysis, and risk-adjusted wealth management in Karimnagar & Bangalore.",
   SITE_URL: "https://nirvanawealthplanner.com",
   CITY: "Karimnagar / Bangalore",
   EMAIL: "info@nirvanawealthplanner.com",

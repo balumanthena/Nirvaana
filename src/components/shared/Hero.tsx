@@ -94,6 +94,7 @@ export function Hero() {
                                     "object-cover transition-transform duration-[20s]",
                                     (index + 1 === current) ? "scale-110" : "scale-100"
                                 )}
+                                sizes="100vw"
                                 priority={index === 0}
                             />
                             {/* Cinematic Overlay */}
