@@ -15,6 +15,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col pt-16 md:pt-24">
 
+      {/* A) Semantic H1 for SEO */}
+      <h1 className="sr-only">
+        Nirvana Wealth Planner - Comprehensive Financial Planning & Investment Services
+      </h1>
+
       {/* A) Hero Section */}
       <Hero />
 

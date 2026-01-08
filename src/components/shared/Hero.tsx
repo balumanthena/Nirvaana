@@ -103,14 +103,14 @@ export function Hero() {
                             {/* Slide Content */}
                             {slide.title && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-                                    <h1
+                                    <h2
                                         className={cn(
                                             "text-3xl md:text-5xl lg:text-6xl font-serif text-white text-center font-medium tracking-wide mb-8 drop-shadow-lg max-w-4xl leading-tight opacity-0",
                                             (index + 1 === current) && "animate-fade-up"
                                         )}
                                     >
                                         {slide.title}
-                                    </h1>
+                                    </h2>
                                     {slide.cta && (
                                         <div
                                             className={cn(
