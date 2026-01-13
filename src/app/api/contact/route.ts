@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import path from 'path';
+import dotenv from 'dotenv';
+
+// Explicitly load .env.local to ensure variables are present
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 export async function POST(request: Request) {
     try {
@@ -13,6 +18,14 @@ export async function POST(request: Request) {
                 { status: 400 }
             );
         }
+
+        // Debug logging
+        const zohoPassword = process.env.ZOHO_APP_PASSWORD;
+        console.log("Debug: API Route hit");
+        console.log("Debug: CWD =", process.cwd());
+        console.log("Debug: ZOHO_APP_PASSWORD type =", typeof zohoPassword);
+        console.log("Debug: ZOHO_APP_PASSWORD length =", zohoPassword ? zohoPassword.length : "undefined");
+        console.log("Debug: NODE_ENV =", process.env.NODE_ENV);
 
         // Create transporter
         const transporter = nodemailer.createTransport({
