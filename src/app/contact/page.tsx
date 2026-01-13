@@ -12,12 +12,44 @@ export default function ContactPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState("");
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const subject = `New Inquiry from ${name}`;
-        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-        window.location.href = `mailto:${CONFIG.EMAIL}?subject=${subject}&body=${body}`;
+        setStatus('loading');
+        setErrorMessage("");
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message');
+            }
+
+            setStatus('success');
+            setName("");
+            setEmail("");
+            setMessage("");
+
+            // Reset success message after 5 seconds
+            setTimeout(() => setStatus('idle'), 5000);
+        } catch (error) {
+            setStatus('error');
+            setErrorMessage(error instanceof Error ? error.message : 'Something went wrong');
+        }
     };
 
     return (
@@ -81,6 +113,7 @@ export default function ContactPage() {
                                                 required
                                                 value={name}
                                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                                                disabled={status === 'loading'}
                                             />
                                         </div>
                                         <div className="space-y-2">
@@ -92,6 +125,7 @@ export default function ContactPage() {
                                                 required
                                                 value={email}
                                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                                                disabled={status === 'loading'}
                                             />
                                         </div>
                                     </div>
@@ -104,10 +138,29 @@ export default function ContactPage() {
                                             required
                                             value={message}
                                             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+                                            disabled={status === 'loading'}
                                         />
                                     </div>
-                                    <Button type="submit" size="lg" className="w-full">
-                                        Send Message
+
+                                    {status === 'error' && (
+                                        <div className="p-3 text-sm text-red-600 bg-red-50 rounded-md">
+                                            {errorMessage || 'Something went wrong. Please try again.'}
+                                        </div>
+                                    )}
+
+                                    {status === 'success' && (
+                                        <div className="p-3 text-sm text-emerald-600 bg-emerald-50 rounded-md">
+                                            Message sent successfully! We'll get back to you soon.
+                                        </div>
+                                    )}
+
+                                    <Button
+                                        type="submit"
+                                        size="lg"
+                                        className="w-full"
+                                        disabled={status === 'loading'}
+                                    >
+                                        {status === 'loading' ? 'Sending...' : 'Send Message'}
                                     </Button>
                                 </form>
                             </CardContent>
