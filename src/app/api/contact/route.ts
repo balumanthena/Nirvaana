@@ -25,6 +25,13 @@ export async function POST(request: Request) {
             },
         });
 
+        console.log('ZOHO_APP_PASSWORD defined:', !!process.env.ZOHO_APP_PASSWORD);
+        if (process.env.ZOHO_APP_PASSWORD) {
+            console.log('ZOHO_APP_PASSWORD length:', process.env.ZOHO_APP_PASSWORD.length);
+        } else {
+            console.error('ZOHO_APP_PASSWORD is MISSING in API route');
+        }
+
         // Email content
         const mailOptions = {
             from: '"Nirvana Wealth Planner Website" <info@nirvanawealthplanner.com>',
