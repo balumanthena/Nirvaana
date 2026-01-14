@@ -230,40 +230,47 @@ export function RiskProfileQuiz() {
 
     return (
         <FadeIn>
-            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
-                {/* Progress Bar */}
-                <div className="h-2 bg-slate-100 w-full">
-                    <div
-                        className="h-full bg-primary transition-all duration-500 ease-out"
-                        style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
-                    />
-                </div>
-                <div className="flex justify-between items-center mb-8">
-                    <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
-                        Question {step + 1} of {QUESTIONS.length}
-                    </span>
-                    <span className="text-sm font-bold text-primary">{Math.round(progress)}% Completed</span>
+            <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden max-w-2xl mx-auto">
+                {/* Header Section */}
+                <div className="bg-slate-50/50 px-8 py-6 border-b border-slate-100">
+                    <div className="flex justify-between items-center mb-4">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-wide uppercase">
+                            Question {step + 1} of {QUESTIONS.length}
+                        </span>
+                        <span className="text-xs font-medium text-slate-400">
+                            {Math.round(progress)}% Completed
+                        </span>
+                    </div>
+                    {/* Progress Bar */}
+                    <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-blue-600 transition-all duration-500 ease-out rounded-full"
+                            style={{ width: `${progress}%` }}
+                        />
+                    </div>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 mb-8 leading-tight">
-                    {currentQuestion.text}
-                </h3>
+                <div className="p-8 md:p-10">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+                        {currentQuestion.text}
+                    </h3>
 
-                <div className="space-y-4">
-                    {currentQuestion.options.map((option, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleOptionSelect(option.score)}
-                            className="w-full text-left p-6 rounded-xl border border-slate-200 hover:border-primary hover:bg-primary/5 transition-all group flex items-center justify-between"
-                        >
-                            <span className="text-lg text-slate-700 group-hover:text-primary font-medium">
-                                {option.text}
-                            </span>
-                            <div className="h-6 w-6 rounded-full border-2 border-slate-200 group-hover:border-primary flex items-center justify-center">
-                                <div className="h-3 w-3 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                        </button>
-                    ))}
+                    <div className="space-y-3">
+                        {currentQuestion.options.map((option, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleOptionSelect(option.score)}
+                                className="w-full text-left p-5 rounded-xl border-2 border-slate-100 hover:border-blue-600 hover:bg-blue-50/50 hover:shadow-md transition-all duration-200 group flex items-center justify-between"
+                            >
+                                <span className="text-lg text-slate-700 group-hover:text-blue-900 font-medium">
+                                    {option.text}
+                                </span>
+                                <div className="h-6 w-6 rounded-full border-2 border-slate-200 group-hover:border-blue-600 flex items-center justify-center transition-colors">
+                                    <div className="h-2.5 w-2.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity transform scale-0 group-hover:scale-100 duration-200" />
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
         </FadeIn>
