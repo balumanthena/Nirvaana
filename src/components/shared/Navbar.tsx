@@ -40,6 +40,7 @@ const NAV_LINKS = [
         children: [
             { name: "All Resources", href: "/resources" },
             { name: "Financial Calculators", href: "/calculators" },
+            { name: "Risk Profile Quiz", href: "/risk-profile" },
         ]
     },
     { name: "Contact", href: "/contact" },
