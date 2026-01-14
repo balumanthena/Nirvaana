@@ -34,7 +34,14 @@ const NAV_LINKS = [
             { name: "Portfolio Review", href: "/services/portfolio-review" },
         ]
     },
-    { name: "Resources", href: "/resources" },
+    {
+        name: "Resources",
+        href: "/resources",
+        children: [
+            { name: "All Resources", href: "/resources" },
+            { name: "Financial Calculators", href: "/calculators" },
+        ]
+    },
     { name: "Contact", href: "/contact" },
 ];
 
