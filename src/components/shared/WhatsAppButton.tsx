@@ -4,7 +4,7 @@ import React from "react";
 
 export const WhatsAppButton = () => {
     const phoneNumber = "919182026548";
-    const message = "Hi Nirvana Wealth Planner, I’m interested in financial planning.";
+    const message = "Hi Nirvana Wealth Planner, I’m looking for financial guidance.";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
