@@ -5,7 +5,7 @@ export const CONFIG = {
   CITY: "Karimnagar / Bangalore",
   EMAIL: "info@nirvanawealthplanner.com",
   PHONE: "+91 9182026548",
-  CALENDLY_URL: "https://calendly.com/srirevoji/30min",
+  CALENDLY_URL: "https://calendly.com/nirvanawealthplanner-info/new-meeting",
   WHATSAPP_URL: "https://wa.me/919182026548",
   SOCIAL_LINKS: {
     LINKEDIN: "#",
