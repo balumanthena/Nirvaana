@@ -46,10 +46,12 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <span className="text-sm font-bold tracking-wider text-primary uppercase mb-2 block">Our Ethos</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
               Why Trust Us?
             </h2>
-
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Trusted by families in <strong className="font-semibold text-slate-800">Karimnagar and Bangalore</strong> for holistic wealth management and unbiased financial advice.
+            </p>
           </div>
           <ValueCards />
         </div>

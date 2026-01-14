@@ -25,6 +25,9 @@ export function ComplianceFooter() {
                             <p>{CONFIG.PHONE}</p>
                             <p>{CONFIG.EMAIL}</p>
                         </div>
+                        <p className="text-sm font-medium text-slate-700 mt-2">
+                            Serving clients in Karimnagar & Bangalore
+                        </p>
                     </div>
 
                     <div>

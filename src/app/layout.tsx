@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: "Nirvana Wealth Planner | Financial Planning Advisor",
     template: `%s | Nirvana Wealth Planner`,
   },
-  description: "Nirvana Wealth Planner offers personalized financial planning, SIPs, retirement planning, and investment advice in India. Secure your financial future today.",
+  description: "Nirvana Wealth Planner offers personalized financial planning and investment advice in Karimnagar & Bangalore. Secure your future with our expert guidance.",
   metadataBase: new URL(CONFIG.SITE_URL),
   alternates: {
     canonical: '/',

@@ -22,10 +22,26 @@ export function JsonLd() {
             latitude: '18.4386',
             longitude: '79.1288',
         },
-        areaServed: {
-            '@type': 'Country',
-            name: 'India',
-        },
+        areaServed: [
+            {
+                '@type': 'City',
+                name: 'Karimnagar',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Telangana',
+                    addressCountry: 'IN'
+                }
+            },
+            {
+                '@type': 'City',
+                name: 'Bangalore',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Karnataka',
+                    addressCountry: 'IN'
+                }
+            }
+        ],
         priceRange: '$$',
         openingHoursSpecification: [
             {
