@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { TreeDeciduous, ArrowRight } from "lucide-react";
+import { NumberTicker } from "@/components/shared/NumberTicker";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 export const RetirementCalculator = () => {
     const [currentAge, setCurrentAge] = useState(30);
@@ -157,8 +159,9 @@ export const RetirementCalculator = () => {
                 </div>
 
 
+
                 {/* Results */}
-                <div className="mt-8 pt-8 border-t border-slate-100 space-y-4">
+                <FadeIn delay={200} className="mt-8 pt-8 border-t border-slate-100 space-y-4">
                     <div className="flex justify-between text-slate-600">
                         <span>Years to Retire</span>
                         <span className="font-semibold">{result.yearsToRetire} Years</span>
@@ -166,19 +169,19 @@ export const RetirementCalculator = () => {
                     <div className="flex justify-between text-slate-600">
                         <span>Future Monthly Expense</span>
                         <span className="font-semibold text-slate-900">
-                            {formatCurrency(result.futureMonthlyExpense)}
+                            <NumberTicker value={result.futureMonthlyExpense} prefix="₹" />
                         </span>
                     </div>
                     <div className="pt-2">
                         <span className="block text-sm font-medium text-slate-500 mb-1">Required Corpus</span>
                         <span className="text-3xl font-bold text-green-700">
-                            {formatCurrency(result.retirementCorpus)}
+                            <NumberTicker value={result.retirementCorpus} prefix="₹" />
                         </span>
                         <p className="text-xs text-slate-400 mt-1">
                             *Estimated corpus to sustain lifestyle indefinitely via interest.
                         </p>
                     </div>
-                </div>
+                </FadeIn>
 
                 {/* CTA */}
                 <div className="pt-6 flex flex-col gap-3">

@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Calculator, ArrowRight } from "lucide-react";
+import { NumberTicker } from "@/components/shared/NumberTicker";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 export const SipCalculator = () => {
     const [monthlyInvestment, setMonthlyInvestment] = useState(5000);
@@ -139,24 +141,26 @@ export const SipCalculator = () => {
                 </div>
 
                 {/* Results */}
-                <div className="mt-8 pt-8 border-t border-slate-100 space-y-4">
+                <FadeIn delay={200} className="mt-8 pt-8 border-t border-slate-100 space-y-4">
                     <div className="flex justify-between text-slate-600">
                         <span>Invested Amount</span>
-                        <span className="font-semibold">{formatCurrency(result.investedAmount)}</span>
+                        <span className="font-semibold">
+                            <NumberTicker value={result.investedAmount} prefix="₹" />
+                        </span>
                     </div>
                     <div className="flex justify-between text-slate-600">
                         <span>Est. Returns</span>
                         <span className="font-semibold text-green-600">
-                            +{formatCurrency(result.estimatedReturns)}
+                            +<NumberTicker value={result.estimatedReturns} prefix="₹" />
                         </span>
                     </div>
                     <div className="flex justify-between items-end pt-2">
                         <span className="text-lg font-medium text-slate-900">Total Value</span>
                         <span className="text-3xl font-bold text-blue-600">
-                            {formatCurrency(result.totalValue)}
+                            <NumberTicker value={result.totalValue} prefix="₹" />
                         </span>
                     </div>
-                </div>
+                </FadeIn>
 
                 {/* CTA */}
                 <div className="pt-6 flex flex-col gap-3">

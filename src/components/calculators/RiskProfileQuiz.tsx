@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CONFIG } from "@/content/config";
 import Link from "next/link";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 // Question Type
 type Question = {
@@ -228,16 +229,15 @@ export function RiskProfileQuiz() {
     const currentQuestion = QUESTIONS[step];
 
     return (
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
-            {/* Progress Bar */}
-            <div className="h-2 bg-slate-100 w-full">
-                <div
-                    className="h-full bg-primary transition-all duration-500 ease-out"
-                    style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
-                />
-            </div>
-
-            <div className="p-8 md:p-12">
+        <FadeIn>
+            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+                {/* Progress Bar */}
+                <div className="h-2 bg-slate-100 w-full">
+                    <div
+                        className="h-full bg-primary transition-all duration-500 ease-out"
+                        style={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
+                    />
+                </div>
                 <div className="flex justify-between items-center mb-8">
                     <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
                         Question {step + 1} of {QUESTIONS.length}
@@ -266,6 +266,6 @@ export function RiskProfileQuiz() {
                     ))}
                 </div>
             </div>
-        </div>
+        </FadeIn>
     );
 }
