@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
+import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { ComplianceFooter } from "@/components/shared/ComplianceFooter";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { CONFIG } from "@/content/config";
@@ -109,6 +110,7 @@ export default function RootLayout({
         </Script> */}
         <Navbar />
         {children}
+        <WhatsAppButton />
         <ComplianceFooter />
       </body>
     </html>
