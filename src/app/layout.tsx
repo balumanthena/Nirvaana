@@ -8,15 +8,15 @@ import { JsonLd } from "@/components/shared/JsonLd";
 import { CONFIG } from "@/content/config";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair", display: "swap" });
 
 export const metadata: Metadata = {
   title: {
-    default: `${CONFIG.BRAND_NAME} | Financial Planning & Investment Advisor`,
-    template: `%s | ${CONFIG.BRAND_NAME}`,
+    default: "Nirvana Wealth Planner | Financial Planning Advisor",
+    template: `%s | Nirvana Wealth Planner`,
   },
-  description: CONFIG.TAGLINE,
+  description: "Nirvana Wealth Planner offers personalized financial planning, SIPs, retirement planning, and investment advice in India. Secure your financial future today.",
   metadataBase: new URL(CONFIG.SITE_URL),
   alternates: {
     canonical: '/',
