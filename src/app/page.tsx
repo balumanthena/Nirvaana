@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/shared/ServiceCard";
 import { ProcessTimeline } from "@/components/shared/ProcessTimeline";
 import { TestimonialCarousel } from "@/components/shared/TestimonialsCarousel";
 import { CTASection } from "@/components/shared/CTASection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { SERVICES } from "@/content/services";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -130,6 +131,9 @@ export default function Home() {
       </section>
 
 
+
+      {/* H) FAQ Section */}
+      <FAQSection />
 
       {/* I) CTA Strip */}
       <CTASection />

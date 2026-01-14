@@ -5,31 +5,55 @@ export function JsonLd() {
         '@context': 'https://schema.org',
         '@type': 'FinancialService',
         name: CONFIG.BRAND_NAME,
-        image: `${CONFIG.SITE_URL}/images/logologo.png`,
-        '@id': CONFIG.SITE_URL,
         url: CONFIG.SITE_URL,
+        logo: `${CONFIG.SITE_URL}/images/logologo.png`,
+        image: `${CONFIG.SITE_URL}/images/logologo.png`,
+        description: CONFIG.TAGLINE,
         telephone: CONFIG.PHONE,
         email: CONFIG.EMAIL,
-        priceRange: '$$',
         address: {
             '@type': 'PostalAddress',
-            addressLocality: CONFIG.CITY,
+            addressLocality: 'Karimnagar',
+            addressRegion: 'Telangana',
             addressCountry: 'IN',
         },
         geo: {
             '@type': 'GeoCoordinates',
-            latitude: '18.4386', // Karimnagar approximate
+            latitude: '18.4386',
             longitude: '79.1288',
         },
-        sameAs: [
-            CONFIG.SOCIAL_LINKS.LINKEDIN,
-            CONFIG.SOCIAL_LINKS.TWITTER,
-        ],
         areaServed: {
             '@type': 'Country',
             name: 'India',
         },
-        description: CONFIG.TAGLINE,
+        priceRange: '$$',
+        openingHoursSpecification: [
+            {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday'
+                ],
+                opens: '09:00',
+                closes: '18:00',
+            }
+        ],
+        sameAs: [
+            CONFIG.SOCIAL_LINKS.LINKEDIN,
+            CONFIG.SOCIAL_LINKS.TWITTER,
+            CONFIG.WHATSAPP_URL
+        ],
+        contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: CONFIG.PHONE,
+            contactType: 'customer service',
+            areaServed: 'IN',
+            availableLanguage: ['en', 'te', 'hi']
+        }
     };
 
     return (
