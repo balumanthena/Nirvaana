@@ -19,13 +19,7 @@ export async function POST(request: Request) {
             );
         }
 
-        // Debug logging
-        const zohoPassword = process.env.ZOHO_APP_PASSWORD;
-        console.log("Debug: API Route hit");
-        console.log("Debug: CWD =", process.cwd());
-        console.log("Debug: ZOHO_APP_PASSWORD type =", typeof zohoPassword);
-        console.log("Debug: ZOHO_APP_PASSWORD length =", zohoPassword ? zohoPassword.length : "undefined");
-        console.log("Debug: NODE_ENV =", process.env.NODE_ENV);
+
 
         // Create transporter
         const transporter = nodemailer.createTransport({
