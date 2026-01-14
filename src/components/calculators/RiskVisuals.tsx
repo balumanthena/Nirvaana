@@ -17,48 +17,58 @@ export const RiskGauge = ({ score, maxScore = 40 }: { score: number; maxScore?: 
     const rotation = -90 + percentage * 180;
 
     return (
-        <div className="relative w-48 h-28 mx-auto flex items-end justify-center overflow-hidden">
+        <div className="relative w-full max-w-[240px] aspect-[2/1] mx-auto flex items-end justify-center">
             {/* Background Arc */}
-            <svg viewBox="0 0 200 110" className="w-full h-full">
+            <svg viewBox="0 0 200 110" className="w-full h-full overflow-visible">
+                {/* Track */}
                 <path
                     d="M 20 100 A 80 80 0 0 1 180 100"
                     fill="none"
-                    stroke="#e2e8f0"
-                    strokeWidth="20"
+                    stroke="#f1f5f9"
+                    strokeWidth="12"
                     strokeLinecap="round"
                 />
-                {/* Colored Zones (Optional overlay for gradient effect) */}
+
+                {/* Active Arc (Gradient) */}
+                <defs>
+                    <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#cbd5e1" />
+                        <stop offset="100%" stopColor="var(--primary)" />
+                    </linearGradient>
+                </defs>
+
+                {/* Needle Indicator Arc */}
                 <path
-                    d="M 20 100 A 80 80 0 0 1 73 46" // Approx first third
+                    d="M 20 100 A 80 80 0 0 1 180 100"
                     fill="none"
-                    stroke="#3b82f6" // Blue (Conservative)
-                    strokeWidth="20"
-                    className="opacity-30"
-                />
-                <path
-                    d="M 73 46 A 80 80 0 0 1 127 46" // Middle third
-                    fill="none"
-                    stroke="#f59e0b" // Amber (Moderate)
-                    strokeWidth="20"
-                    className="opacity-30"
-                />
-                <path
-                    d="M 127 46 A 80 80 0 0 1 180 100" // Last third
-                    fill="none"
-                    stroke="#22c55e" // Green (Aggressive - typical logic is green=good returns usually)
-                    strokeWidth="20"
-                    className="opacity-30"
+                    stroke="url(#gaugeGradient)"
+                    strokeWidth="12"
+                    strokeLinecap="round"
+                    strokeDasharray="251.2" // Circumference of semicircle (PI * R)
+                    strokeDashoffset={251.2 * (1 - percentage)}
+                    className="transition-all duration-1000 ease-out"
                 />
 
                 {/* Needle */}
-                <g className="transition-transform duration-1000 ease-out origin-[100px_100px]" style={{ transform: `rotate(${rotation}deg)` }}>
-                    <path d="M 100 100 L 100 30" stroke="#1e293b" strokeWidth="4" strokeLinecap="round" />
-                    <circle cx="100" cy="100" r="6" fill="#1e293b" />
+                <g
+                    className="transition-transform duration-1000 ease-out origin-bottom"
+                    style={{
+                        transformBox: "fill-box",
+                        transformOrigin: "100px 100px",
+                        transform: `rotate(${rotation}deg)`
+                    }}
+                >
+                    <circle cx="100" cy="100" r="5" fill="var(--primary)" />
+                    <path d="M 100 100 L 100 35" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" />
                 </g>
             </svg>
-            <div className="absolute bottom-0 text-center">
-                <span className="text-3xl font-bold text-slate-900">{Math.round(animatedScore)}</span>
-                <span className="text-xs text-slate-500 block uppercase tracking-wider">Risk Score</span>
+
+            {/* Score Text */}
+            <div className="absolute bottom-0 translate-y-6 text-center">
+                <div className="bg-white border border-slate-100 shadow-sm px-4 py-1.5 rounded-full inline-flex items-baseline gap-1">
+                    <span className="text-2xl font-bold text-slate-900 leading-none">{Math.round(animatedScore)}</span>
+                    <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">/ {maxScore}</span>
+                </div>
             </div>
         </div>
     );
@@ -66,8 +76,6 @@ export const RiskGauge = ({ score, maxScore = 40 }: { score: number; maxScore?: 
 
 // --- Donut Chart Component ---
 export const AllocationChart = ({ equity, debt }: { equity: number; debt: number }) => {
-    // Conic gradient for donut chart
-    // Equity (Primary Color), Debt (Slate-200)
     const [animatedEquity, setAnimatedEquity] = useState(0);
 
     useEffect(() => {
@@ -76,37 +84,42 @@ export const AllocationChart = ({ equity, debt }: { equity: number; debt: number
     }, [equity]);
 
     return (
-        <div className="flex items-center gap-6">
-            <div className="relative w-32 h-32 rounded-full shadow-inner bg-slate-50 flex items-center justify-center">
+        <div className="flex items-center justify-center gap-8">
+            <div className="relative w-32 h-32 flex items-center justify-center">
+                {/* Background Ring */}
+                <div className="absolute inset-0 rounded-full border-[8px] border-slate-50" />
+
+                {/* Active Ring */}
                 <div
                     className="absolute inset-0 rounded-full transition-all duration-1000 ease-out"
                     style={{
-                        background: `conic-gradient(var(--primary) 0% ${animatedEquity}%, #e2e8f0 ${animatedEquity}% 100%)`,
-                        // Mask to create donut hole
-                        mask: "radial-gradient(transparent 55%, black 56%)",
-                        WebkitMask: "radial-gradient(transparent 55%, black 56%)"
+                        background: `conic-gradient(var(--primary) 0% ${animatedEquity}%, #cbd5e1 ${animatedEquity}% 100%)`,
+                        mask: "radial-gradient(transparent 62%, black 63%)",
+                        WebkitMask: "radial-gradient(transparent 62%, black 63%)"
                     }}
                 />
-                <div className="z-10 text-center">
-                    <span className="text-lg font-bold text-slate-900">{Math.round(animatedEquity)}%</span>
-                    <span className="text-[10px] text-slate-500 block">Equity</span>
+
+                {/* Center Text */}
+                <div className="z-10 text-center flex flex-col items-center justify-center">
+                    <span className="text-2xl font-bold text-slate-900">{Math.round(animatedEquity)}%</span>
+                    <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Equity</span>
                 </div>
             </div>
 
             {/* Legend */}
-            <div className="space-y-2">
+            <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-primary" />
+                    <div className="w-2 h-2 rounded-full bg-primary" />
                     <div className="text-sm">
                         <span className="font-semibold text-slate-900">{equity}%</span>
-                        <span className="text-slate-500 ml-1">Equity</span>
+                        <span className="text-slate-500 ml-1.5 text-xs">Equity</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-slate-200" />
+                    <div className="w-2 h-2 rounded-full bg-slate-300" />
                     <div className="text-sm">
                         <span className="font-semibold text-slate-900">{debt}%</span>
-                        <span className="text-slate-500 ml-1">Debt / Fixed</span>
+                        <span className="text-slate-500 ml-1.5 text-xs">Fixed Income</span>
                     </div>
                 </div>
             </div>
