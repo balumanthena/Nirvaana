@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Check, ChevronRight, RefreshCw, Send, ShieldCheck, PieChart, Gauge } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, RefreshCw, Send, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CONFIG } from "@/content/config";
 import Link from "next/link";
 import { FadeIn } from "@/components/shared/FadeIn";
-import { RiskGauge, AllocationChart } from "@/components/calculators/RiskVisuals";
 
 // Question Type
 type Question = {
@@ -102,7 +101,6 @@ type RiskProfile = {
     description: string;
     recommendation: string;
     color: string;
-    allocations: { equity: number; debt: number };
 };
 
 export function RiskProfileQuiz() {
@@ -149,7 +147,6 @@ export function RiskProfileQuiz() {
                 description: "You prefer safety over high returns. Your primary goal is to protect your capital.",
                 recommendation: "Focus on Debt Mutual Funds, Fixed Deposits, and low-risk bonds. Limit equity exposure.",
                 color: "text-blue-600 bg-blue-50 border-blue-200",
-                allocations: { equity: 20, debt: 80 }
             };
         } else if (totalScore <= 32) {
             return {
@@ -157,7 +154,6 @@ export function RiskProfileQuiz() {
                 description: "You want a balance between growth and safety. You can tolerate some market volatility.",
                 recommendation: "A balanced portfolio of Equity (Hybrid Funds) and Debt instruments suits you best.",
                 color: "text-amber-600 bg-amber-50 border-amber-200",
-                allocations: { equity: 50, debt: 50 }
             };
         } else {
             return {
@@ -165,7 +161,6 @@ export function RiskProfileQuiz() {
                 description: "You aim for long-term wealth creation and are comfortable with short-term market ups and downs.",
                 recommendation: "Pure Equity Funds (Large Cap, Mid Cap) and SIPs for long-term compounding are ideal.",
                 color: "text-green-600 bg-green-50 border-green-200",
-                allocations: { equity: 80, debt: 20 }
             };
         }
     };
@@ -180,64 +175,53 @@ export function RiskProfileQuiz() {
         const result = calculateResult();
         const whatsappMessage = `Hi Nirvana Wealth Planner, my risk profile is ${result.label}. Please guide me.`;
 
-        const currentScore = scores.reduce((a, b) => a + b, 0);
-
         return (
-            <div className="max-w-4xl mx-auto space-y-8 animate-in zoom-in-95 duration-500">
-                {/* Dashboard Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Risk Score Card */}
-                    <FadeIn delay={100} className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 flex flex-col items-center justify-center text-center">
-                        <div className="mb-6 bg-slate-50 p-4 rounded-full">
-                            <Gauge className="w-8 h-8 text-primary" />
-                        </div>
-                        <h2 className="text-lg text-slate-500 font-medium mb-1">Risk Profile Score</h2>
-                        <RiskGauge score={currentScore} maxScore={40} />
-                        <h3 className={`text-2xl font-serif font-bold mt-4 px-6 py-2 rounded-full border ${result.color}`}>
-                            {result.label}
-                        </h3>
-                        <p className="text-slate-600 mt-4 text-sm max-w-xs mx-auto">
-                            {result.description}
-                        </p>
-                    </FadeIn>
-
-                    {/* Asset Allocation Card */}
-                    <FadeIn delay={200} className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 flex flex-col items-center justify-center">
-                        <div className="mb-6 bg-slate-50 p-4 rounded-full">
-                            <PieChart className="w-8 h-8 text-primary" />
-                        </div>
-                        <h2 className="text-lg text-slate-500 font-medium mb-6">Suggested Allocation</h2>
-                        <AllocationChart equity={result.allocations.equity} debt={result.allocations.debt} />
-
-                        <div className="mt-8 p-4 bg-slate-50 rounded-xl w-full text-left border border-slate-100">
-                            <h4 className="font-semibold text-slate-900 text-sm mb-2">Strategy:</h4>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                {result.recommendation}
-                            </p>
-                        </div>
-                    </FadeIn>
+            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 text-center animate-in zoom-in-95 duration-500">
+                <div className="flex justify-center mb-6">
+                    <div className="h-20 w-20 bg-slate-100 rounded-full flex items-center justify-center">
+                        <ShieldCheck className="w-10 h-10 text-slate-800" />
+                    </div>
                 </div>
 
-                {/* Actions */}
-                <FadeIn delay={300} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <h2 className="text-xl text-slate-500 font-medium mb-2">Your Risk Profile is</h2>
+                <h3 className={`text-3xl md:text-4xl font-serif font-bold mb-6 px-6 py-3 rounded-full inline-block border ${result.color}`}>
+                    {result.label}
+                </h3>
+
+                <p className="text-slate-600 text-lg mb-4 max-w-lg mx-auto">
+                    {result.description}
+                </p>
+
+                <div className="bg-slate-50 rounded-xl p-6 mb-8 text-left max-w-lg mx-auto border border-slate-100">
+                    <h4 className="font-semibold text-slate-900 mb-2">Suggested Approach:</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                        {result.recommendation}
+                    </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                         href={`https://wa.me/${CONFIG.PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappMessage)}`}
                         target="_blank"
-                        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 hover:shadow-xl hover:scale-105 transform duration-200"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20"
                     >
                         <Send className="w-5 h-5 mr-2" />
-                        Get Expert Advice
+                        Get Expert Advice on WhatsApp
                     </Link>
                     <Button
                         variant="outline"
                         size="lg"
                         onClick={resetQuiz}
-                        className="rounded-full h-14 px-8 border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900"
+                        className="rounded-full h-14 px-8 border-slate-200 hover:bg-slate-50 text-slate-600"
                     >
                         <RefreshCw className="w-5 h-5 mr-2" />
-                        Retake Assessment
+                        Retake Quiz
                     </Button>
-                </FadeIn>
+                </div>
+
+                <p className="text-xs text-slate-400 mt-8 max-w-md mx-auto">
+                    Disclaimer: This assessment provides a general indication of your risk appetite. Please consult a financial advisor before making investment decisions.
+                </p>
             </div>
         );
     }
