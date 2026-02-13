@@ -49,16 +49,14 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
               Why Trust Us?
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Trusted by families in <strong className="font-semibold text-slate-800">Karimnagar and Bangalore</strong> for holistic wealth management and unbiased financial advice.
-            </p>
+
           </div>
           <ValueCards />
         </div>
       </section>
 
       {/* C.5) Products Section [NEW] */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-8">
             <span className="text-sm font-bold tracking-wider text-primary uppercase mb-2 block">Our Offerings</span>

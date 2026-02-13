@@ -41,6 +41,7 @@ const NAV_LINKS = [
             { name: "All Resources", href: "/resources" },
             { name: "Financial Calculators", href: "/calculators" },
             { name: "Risk Profile Quiz", href: "/risk-profile" },
+            { name: "Investment Recommendations", href: "/resources/investment-recommendations" },
         ]
     },
     { name: "Contact", href: "/contact" },

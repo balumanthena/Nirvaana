@@ -176,50 +176,50 @@ export function RiskProfileQuiz() {
         const whatsappMessage = `Hi Nirvana Wealth Planner, my risk profile is ${result.label}. Please guide me.`;
 
         return (
-            <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 text-center animate-in zoom-in-95 duration-500">
-                <div className="flex justify-center mb-6">
-                    <div className="h-20 w-20 bg-slate-100 rounded-full flex items-center justify-center">
-                        <ShieldCheck className="w-10 h-10 text-slate-800" />
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 text-center animate-in zoom-in-95 duration-500">
+                <div className="flex justify-center mb-4">
+                    <div className="h-16 w-16 bg-slate-100 rounded-full flex items-center justify-center">
+                        <ShieldCheck className="w-8 h-8 text-slate-800" />
                     </div>
                 </div>
 
-                <h2 className="text-xl text-slate-500 font-medium mb-2">Your Risk Profile is</h2>
-                <h3 className={`text-3xl md:text-4xl font-serif font-bold mb-6 px-6 py-3 rounded-full inline-block border ${result.color}`}>
+                <h2 className="text-lg text-slate-500 font-medium mb-1">Your Risk Profile is</h2>
+                <h3 className={`text-2xl md:text-3xl font-serif font-bold mb-4 px-5 py-2 rounded-full inline-block border ${result.color}`}>
                     {result.label}
                 </h3>
 
-                <p className="text-slate-600 text-lg mb-4 max-w-lg mx-auto">
+                <p className="text-slate-600 text-base mb-4 max-w-lg mx-auto">
                     {result.description}
                 </p>
 
-                <div className="bg-slate-50 rounded-xl p-6 mb-8 text-left max-w-lg mx-auto border border-slate-100">
-                    <h4 className="font-semibold text-slate-900 mb-2">Suggested Approach:</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                <div className="bg-slate-50 rounded-lg p-5 mb-6 text-left max-w-lg mx-auto border border-slate-100">
+                    <h4 className="font-semibold text-slate-900 mb-1 text-sm">Suggested Approach:</h4>
+                    <p className="text-slate-600 text-xs leading-relaxed">
                         {result.recommendation}
                     </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link
                         href={`https://wa.me/${CONFIG.PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappMessage)}`}
                         target="_blank"
-                        className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-medium rounded-full hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20 text-sm"
                     >
-                        <Send className="w-5 h-5 mr-2" />
+                        <Send className="w-4 h-4 mr-2" />
                         Get Expert Advice on WhatsApp
                     </Link>
                     <Button
                         variant="outline"
                         size="lg"
                         onClick={resetQuiz}
-                        className="rounded-full h-14 px-8 border-slate-200 hover:bg-slate-50 text-slate-600"
+                        className="rounded-full h-12 px-6 border-slate-200 hover:bg-slate-50 text-slate-600 text-sm"
                     >
-                        <RefreshCw className="w-5 h-5 mr-2" />
+                        <RefreshCw className="w-4 h-4 mr-2" />
                         Retake Quiz
                     </Button>
                 </div>
 
-                <p className="text-xs text-slate-400 mt-8 max-w-md mx-auto">
+                <p className="text-[10px] text-slate-400 mt-6 max-w-md mx-auto">
                     Disclaimer: This assessment provides a general indication of your risk appetite. Please consult a financial advisor before making investment decisions.
                 </p>
             </div>
@@ -230,19 +230,19 @@ export function RiskProfileQuiz() {
 
     return (
         <FadeIn>
-            <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden max-w-2xl mx-auto">
                 {/* Header Section */}
-                <div className="bg-slate-50/50 px-8 py-6 border-b border-slate-100">
-                    <div className="flex justify-between items-center mb-4">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
+                <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-100">
+                    <div className="flex justify-between items-center mb-3">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold tracking-wide uppercase">
                             Question {step + 1} of {QUESTIONS.length}
                         </span>
-                        <span className="text-xs font-medium text-slate-400">
+                        <span className="text-[10px] font-medium text-slate-400">
                             {Math.round(progress)}% Completed
                         </span>
                     </div>
                     {/* Progress Bar */}
-                    <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                    <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
                         <div
                             className="h-full bg-primary transition-all duration-500 ease-out rounded-full"
                             style={{ width: `${progress}%` }}
@@ -250,23 +250,23 @@ export function RiskProfileQuiz() {
                     </div>
                 </div>
 
-                <div className="p-8 md:p-10">
-                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+                <div className="p-6 md:p-8">
+                    <h3 className="text-xl md:text-2xl font-serif font-bold text-slate-900 mb-6 leading-tight">
                         {currentQuestion.text}
                     </h3>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                         {currentQuestion.options.map((option, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleOptionSelect(option.score)}
-                                className="w-full text-left p-5 rounded-xl border-2 border-slate-100 hover:border-primary hover:bg-primary/5 hover:shadow-md transition-all duration-200 group flex items-center justify-between"
+                                className="w-full text-left p-4 rounded-lg border-2 border-slate-100 hover:border-primary hover:bg-primary/5 hover:shadow-sm transition-all duration-200 group flex items-center justify-between"
                             >
-                                <span className="text-lg text-slate-700 group-hover:text-primary font-medium">
+                                <span className="text-base text-slate-700 group-hover:text-primary font-medium">
                                     {option.text}
                                 </span>
-                                <div className="h-6 w-6 rounded-full border-2 border-slate-200 group-hover:border-primary flex items-center justify-center transition-colors">
-                                    <div className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity transform scale-0 group-hover:scale-100 duration-200" />
+                                <div className="h-5 w-5 rounded-full border-2 border-slate-200 group-hover:border-primary flex items-center justify-center transition-colors">
+                                    <div className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity transform scale-0 group-hover:scale-100 duration-200" />
                                 </div>
                             </button>
                         ))}

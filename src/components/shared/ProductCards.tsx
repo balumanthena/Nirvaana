@@ -1,67 +1,90 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
     MutualFundsIllustration,
     TermLifeIllustration,
-    HealthInsuranceIllustration
+    HealthInsuranceIllustration,
+    RetirementIllustration
 } from "@/components/shared/Illustrations";
 
 const PRODUCTS = [
     {
         subheader: "",
         title: "Mutual Funds",
-        description: "When you buy a mutual fund, your money is combined with the money from other investors, and allows you to buy part of a pool of investments.",
+        description: (
+            <>
+                Mutual Funds offer a simple way to invest across diversified assets, helping you build{" "}
+                <span className="font-semibold text-primary">Long-Term Wealth Creation</span>. Through SIPs, you can start small and benefit from the{" "}
+                <span className="font-semibold text-primary">Power of Compounding</span> and rupee-cost averaging to achieve your financial goals with confidence.
+            </>
+        ),
         icon: MutualFundsIllustration,
     },
     {
         subheader: "",
+        title: "Health Insurance",
+        description: (
+            <>
+                Health Insurance is essential for protecting your savings from rising medical expenses. It offers extensive hospitalization coverage and cashless treatment at network hospitals, creating a dependable{" "}
+                <span className="font-semibold text-primary">Safety Net</span> for your health and finances.
+            </>
+        ),
+        icon: HealthInsuranceIllustration,
+    },
+    {
+        subheader: "",
         title: "Term Insurance",
-        description: "Your Car, Travel, Home, Office, Health & Bike Insurance. Get an Instant quote Now. Customized Quote in 2 min. Issue Policy Online in 2 min. Get Tax Benefits.",
+        description: (
+            <>
+                Term Insurance provides high, affordable coverage designed to protect your loved ones during life’s uncertainties. It offers complete{" "}
+                <span className="font-semibold text-primary">Pure Protection</span> to{" "}
+                <span className="font-semibold text-primary">secure</span> your family's{" "}
+                <span className="font-semibold text-primary">financial future</span>, ensuring stability even in your absence.
+            </>
+        ),
         icon: TermLifeIllustration,
     },
     {
         subheader: "",
-        title: "Health Insurance",
-        description: "Important as it protects your family and lets you leave them a non-taxable amount at the time of death. Issue Policy Online in 5 min. Get Tax Benefits.",
-        icon: HealthInsuranceIllustration,
+        title: "National Pension System (NPS)",
+        description: (
+            <>
+                NPS is a disciplined, tax efficient retirement planning solution backed by the Government of India. Managed by professional pension fund managers, it helps you build a strong retirement corpus that ensures long term{" "}
+                <span className="font-semibold text-primary">Retirement Security</span>.
+            </>
+        ),
+        icon: RetirementIllustration,
     }
 ];
 
 export function ProductCards() {
     return (
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1200px] mx-auto">
             {PRODUCTS.map((product, index) => (
-                <div key={index} className="flex flex-col space-y-4 group">
-                    {/* Sub-header above card */}
-                    {product.subheader && (
-                        <h3 className="text-xl font-serif font-medium text-primary text-center opacity-80 group-hover:opacity-100 transition-opacity">
-                            {product.subheader}
-                        </h3>
-                    )}
+                <div
+                    key={index}
+                    className="group relative bg-white border border-slate-100 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center overflow-hidden"
+                >
+                    {/* Top Accent Line on Hover */}
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
 
-                    {/* Card */}
-                    <Card className="border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full bg-white rounded-2xl hover:border-primary/20 overflow-hidden relative">
-                        {/* Subtle top accent */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/50 transition-all duration-500" />
+                    {/* Icon */}
+                    <div className="w-14 h-14 mb-5 rounded-full bg-[#F4F4F4] flex items-center justify-center group-hover:bg-primary/5 transition-colors duration-300 p-3">
+                        <product.icon className="w-full h-full drop-shadow-none transform group-hover:scale-105 transition-transform duration-300" />
+                    </div>
 
-                        <CardContent className="flex flex-col items-center text-center p-8 h-full">
-                            {/* Illustration Container */}
-                            <div className="w-20 h-20 mb-6 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors duration-500 p-4">
-                                <product.icon className="w-full h-full drop-shadow-sm transform group-hover:scale-110 transition-transform duration-500" />
-                            </div>
+                    {/* Title */}
+                    <h4 className="text-base font-bold text-slate-800 mb-4 group-hover:text-primary transition-colors duration-300 font-serif tracking-tight">
+                        {product.title}
+                    </h4>
 
-                            {/* Title */}
-                            <h4 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                                {product.title}
-                            </h4>
+                    {/* Divider */}
+                    <div className="w-10 h-[1px] bg-slate-200 mb-4" />
 
-                            {/* Description */}
-                            <p className="text-slate-600 leading-relaxed text-sm">
-                                {product.description}
-                            </p>
-                        </CardContent>
-                    </Card>
+                    {/* Description */}
+                    <div className="text-slate-600 leading-normal text-[14px] max-w-[90%] mx-auto">
+                        {product.description}
+                    </div>
                 </div>
             ))}
         </div>

@@ -2,13 +2,13 @@ import { Zap, Scale, HeartHandshake } from "lucide-react";
 
 const VALUES = [
     {
-        title: "Transparent",
-        description: "No hidden fees. No fine print. You know exactly what you pay and exactly what you get.",
+        title: "Trusted Partnership",
+        description: "Ongoing support to help you stay on track toward financial independence.",
         icon: Zap
     },
     {
-        title: "Unbiased",
-        description: "We work for you, not the fund houses. Zero commissions means our advice is 100% in your interest.",
+        title: "Ethical Advisory",
+        description: "Client-focused recommendations with full clarity and structured processes.",
         icon: Scale
     },
     {

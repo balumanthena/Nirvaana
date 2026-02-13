@@ -25,19 +25,7 @@ export default function WhyUsPage() {
                             </p>
                         </section>
 
-                        <section className="mb-16">
-                            <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Why Fee-Only?</h2>
-                            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                                Traditional wealth management is broken. It is riddled with hidden commissions
-                                and sales targets. Agents sell you products that earn *them* the highest commission,
-                                not what generates the best returns for *you*.
-                            </p>
-                            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                                As a fee-only practice, we do not sell any products. We do not earn a single rupee
-                                from mutual funds, insurance companies, or stock brokers. Our only revenue comes
-                                from the fees you pay us. This ensures that our advice is 100% aligned with your goals.
-                            </p>
-                        </section>
+
 
                         <div className="my-20">
                             <h2 className="text-3xl md:text-4xl font-serif font-bold text-center text-foreground mb-12">
