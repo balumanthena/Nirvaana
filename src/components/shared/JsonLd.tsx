@@ -11,37 +11,28 @@ export function JsonLd() {
         description: CONFIG.TAGLINE,
         telephone: CONFIG.PHONE,
         email: CONFIG.EMAIL,
-        address: {
+        address: CONFIG.ADDRESSES.map(addr => ({
             '@type': 'PostalAddress',
-            addressLocality: 'Karimnagar',
-            addressRegion: 'Telangana',
+            streetAddress: `${addr.line1}, ${addr.line2}, ${addr.line3}`,
+            addressLocality: addr.city,
+            addressRegion: addr.state,
+            postalCode: addr.pincode,
             addressCountry: 'IN',
-        },
+        })),
         geo: {
             '@type': 'GeoCoordinates',
             latitude: '18.4386',
             longitude: '79.1288',
         },
-        areaServed: [
-            {
-                '@type': 'City',
-                name: 'Karimnagar',
-                address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Telangana',
-                    addressCountry: 'IN'
-                }
-            },
-            {
-                '@type': 'City',
-                name: 'Bangalore',
-                address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Karnataka',
-                    addressCountry: 'IN'
-                }
+        areaServed: CONFIG.ADDRESSES.map(addr => ({
+            '@type': 'City',
+            name: addr.city,
+            address: {
+                '@type': 'PostalAddress',
+                addressRegion: addr.state,
+                addressCountry: 'IN'
             }
-        ],
+        })),
         priceRange: '$$',
         openingHoursSpecification: [
             {

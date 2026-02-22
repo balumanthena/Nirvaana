@@ -8,7 +8,7 @@ export const TESTIMONIALS = [
     {
         name: "Billa Narasimha Rao",
         role: "Scientist, Bengaluru",
-        content: "I appreciate their analytical and data-driven approach. The fee-only model was truly a game changer — I saved over ₹50,000 in commissions in just the first year by moving to direct plans. Transparent and evidence-based advice.",
+        content: "I appreciate their analytical and data-driven approach.I saved over ₹50,000 in commissions in just the first year by moving to direct plans. Transparent and evidence-based advice.",
         initials: "BN"
     },
     {

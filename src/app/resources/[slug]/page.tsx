@@ -27,7 +27,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         In the world of finance, incentives take supreme precedence. The person selling you a product is often incentivized to sell you the one that earns *them* the most money, not the one that makes *you* the most money. This is the fundamental conflict of interest in the distribution model.
                     </p>
                     <p>
-                        A <strong>Fee-Only Advisor</strong>, on the other hand, is compensated solely by the client. This means:
+                        A <strong>Advisor</strong>, on the other hand, is compensated solely by the client. This means:
                     </p>
                     <ul>
                         <li>Zero commissions from product manufacturers.</li>

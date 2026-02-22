@@ -12,7 +12,7 @@ export default function WhyUsPage() {
                     </h1>
                     <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
                         We are a team of Investment Advisors dedicated to providing
-                        unbiased, data-driven, and fee-only financial advice.
+                        unbiased, data-driven, and  financial advice.
                     </p>
 
                     <div className="prose prose-lg prose-slate max-w-none">
@@ -20,7 +20,7 @@ export default function WhyUsPage() {
                             <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Our Mission</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                                 To democratize high-quality financial advice. We believe that everyone deserves
-                                a financial plan that is free from conflicts of interest. Our mission is to
+                                a financial plan. Our mission is to
                                 help 10,000 families achieve true financial freedom by 2030.
                             </p>
                         </section>

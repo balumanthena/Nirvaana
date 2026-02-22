@@ -4,7 +4,6 @@ import {
     MutualFundsIllustration,
     TermLifeIllustration,
     HealthInsuranceIllustration,
-    RetirementIllustration
 } from "@/components/shared/Illustrations";
 
 const PRODUCTS = [
@@ -43,23 +42,12 @@ const PRODUCTS = [
             </>
         ),
         icon: TermLifeIllustration,
-    },
-    {
-        subheader: "",
-        title: "National Pension System (NPS)",
-        description: (
-            <>
-                NPS is a disciplined, tax efficient retirement planning solution backed by the Government of India. Managed by professional pension fund managers, it helps you build a strong retirement corpus that ensures long term{" "}
-                <span className="font-semibold text-primary">Retirement Security</span>.
-            </>
-        ),
-        icon: RetirementIllustration,
     }
 ];
 
 export function ProductCards() {
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1200px] mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
             {PRODUCTS.map((product, index) => (
                 <div
                     key={index}

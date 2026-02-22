@@ -1,8 +1,5 @@
 export const FAQS = [
-    {
-        question: "What does 'Fee-Only' mean?",
-        answer: "Fee-Only means we get paid ONLY by you, the client. We do not earn any commissions, brokerage, or kickbacks from mutual potential fund houses or insurance companies. This ensures our advice is 100% unbiased and in your best interest."
-    },
+    
     {
         question: "Are you SEBI registered?",
         answer: "Yes, we are a SEBI Registered Investment Advisor (RIA). We adhere to the strict fiduciary standards set by SEBI, which mandates that we put your interest above everything else."

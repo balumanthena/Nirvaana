@@ -56,7 +56,7 @@ export default function TeamPage() {
                                         I do not focus on selling products; I focus on <strong className="text-slate-800">building financially confident families</strong> through goal‑based planning that supports education, retirement, health protection, and long‑term wealth creation.
                                     </p>
                                     <p>
-                                        My philosophy is simple: real wealth is not about high‑net‑worth individuals; it is about creating <strong className="text-slate-800">high‑net‑worth families</strong>.
+                                        My philosophy is not to chase high-net-worth individuals, but to create high-net-worth families <strong className="text-slate-800">high‑net‑worth families</strong>.
                                     </p>
                                     <p>
                                         Through transparent advice and customised strategies, I aim to be your <strong>Family Wealth Guardian</strong>, supporting you at every stage of your financial journey.

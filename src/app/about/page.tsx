@@ -13,7 +13,7 @@ export default function AboutPage() {
                     </h1>
                     <p className="text-xl text-muted-foreground mb-16 leading-relaxed max-w-2xl mx-auto">
                         We are a team of SEBI Registered Investment Advisors dedicated to providing
-                        unbiased, data-driven, and fee-only financial advice.
+                        unbiased, data-driven.
                     </p>
 
                     <div className="grid md:grid-cols-3 gap-8 text-left">

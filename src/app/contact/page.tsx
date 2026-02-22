@@ -91,9 +91,17 @@ export default function ContactPage() {
                                 <MapPin className="w-6 h-6 text-emerald-600 shrink-0 mt-1" />
                                 <div>
                                     <h3 className="font-semibold text-slate-900 mb-1">Visit Us</h3>
-                                    <p className="text-slate-600">
-                                        {CONFIG.CITY}, India.
-                                    </p>
+                                    <div className="space-y-4">
+                                        {CONFIG.ADDRESSES.map((addr, idx) => (
+                                            <div key={idx}>
+                                                <p className="font-medium text-slate-800 text-sm mb-1">{addr.label}</p>
+                                                <p className="text-slate-600 text-sm leading-relaxed">
+                                                    {addr.line1}, {addr.line2},<br />
+                                                    {addr.line3} - {addr.pincode}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </CardContent>
                         </Card>

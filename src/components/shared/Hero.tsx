@@ -67,7 +67,7 @@ export function Hero() {
     }, [api]);
 
     return (
-        <section className="relative h-[calc(100vh-6rem)] w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden">
+        <section className="relative min-h-screen w-full overflow-hidden bg-slate-900">
             {/* Full Screen Carousel */}
             <Carousel
                 setApi={setApi}
@@ -85,48 +85,62 @@ export function Hero() {
             >
                 <CarouselContent className="!ml-0 h-full">
                     {HERO_SLIDES.map((slide, index) => (
-                        <CarouselItem key={index} className="!pl-0 h-full w-full relative bg-gray-900">
-                            <NextImage
-                                src={slide.image}
-                                alt={slide.title}
-                                fill
-                                className={cn(
-                                    "object-cover transition-transform duration-[20s]",
-                                    (index + 1 === current) ? "scale-110" : "scale-100"
-                                )}
-                                sizes="100vw"
-                                priority={index === 0}
-                            />
-                            {/* Cinematic Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-
-                            {/* Slide Content */}
-                            {slide.title && (
-                                <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-                                    <h2
-                                        className={cn(
-                                            "text-3xl md:text-5xl lg:text-6xl font-serif text-white text-center font-medium tracking-wide mb-8 drop-shadow-lg max-w-4xl leading-tight opacity-0",
-                                            (index + 1 === current) && "animate-fade-up"
-                                        )}
-                                    >
-                                        {slide.title}
-                                    </h2>
-                                    {slide.cta && (
-                                        <div
-                                            className={cn(
-                                                "opacity-0",
-                                                (index + 1 === current) && "animate-fade-up"
-                                            )}
-                                            style={{ animationDelay: "300ms" }}
-                                        >
-                                            <Link
-                                                href={slide.link || "#"}
-                                                className="px-8 py-3 bg-white text-slate-900 font-medium text-lg rounded-sm hover:bg-slate-100 transition-colors shadow-lg inline-block"
-                                            >
-                                                {slide.cta}
-                                            </Link>
-                                        </div>
+                        <CarouselItem key={index} className="!pl-0 h-[100vh] w-full relative">
+                            {/* Layer 1: Background Image */}
+                            <div className="absolute inset-0">
+                                <NextImage
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    fill
+                                    className={cn(
+                                        "object-cover transition-transform duration-[20s] ease-out",
+                                        (index + 1 === current) ? "scale-110" : "scale-100"
                                     )}
+                                    sizes="100vw"
+                                    priority={index === 0}
+                                    quality={100}
+                                />
+                            </div>
+
+                            {/* Layer 2: Gradient Overlay (Cinematic Depth) */}
+                            <div
+                                className="absolute inset-0 z-10"
+                                style={{
+                                    background: 'radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)',
+                                    backgroundColor: 'rgba(0,0,0,0.2)' // Base tint
+                                }}
+                            />
+                            {/* Layer 3: Content Layer */}
+                            {slide.title && (
+                                <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 md:px-8">
+                                    <div className="max-w-6xl w-full text-center">
+                                        <h2
+                                            className={cn(
+                                                "text-[28px] sm:text-[38px] md:text-[48px] lg:text-[56px] font-serif text-[#ffffff] font-bold tracking-tight mb-10 leading-[1.1] opacity-0 transition-all duration-1000 ease-out mx-auto max-w-4xl",
+                                                (index + 1 === current) && "animate-fade-up opacity-100"
+                                            )}
+                                            style={{
+                                                textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                                            }}
+                                        >
+                                            {slide.title}
+                                        </h2>
+                                        {slide.cta && (
+                                            <div
+                                                className={cn(
+                                                    "opacity-0 transition-all duration-1000 delay-500",
+                                                    (index + 1 === current) && "animate-fade-up opacity-100"
+                                                )}
+                                            >
+                                                <Link
+                                                    href={slide.link || "#"}
+                                                    className="px-10 py-3.5 bg-white text-slate-900 font-semibold text-base rounded-sm hover:bg-slate-100 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 inline-block"
+                                                >
+                                                    {slide.cta}
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             )}
                         </CarouselItem>
@@ -134,12 +148,12 @@ export function Hero() {
                 </CarouselContent>
 
                 {/* Navigation Arrows - Minimal & Glassmorphic */}
-                <CarouselPrevious className="left-4 md:left-8 bg-white/5 hover:bg-white/20 border-white/10 text-white backdrop-blur-md w-12 h-12 z-30 transition-all duration-300 rounded-full" />
-                <CarouselNext className="right-4 md:right-8 bg-white/5 hover:bg-white/20 border-white/10 text-white backdrop-blur-md w-12 h-12 z-30 transition-all duration-300 rounded-full" />
+                <CarouselPrevious className="hidden md:flex left-8 bg-white/10 hover:bg-white/20 border-white/20 text-white backdrop-blur-md w-14 h-14 z-30 transition-all duration-300 rounded-full" />
+                <CarouselNext className="hidden md:flex right-8 bg-white/10 hover:bg-white/20 border-white/20 text-white backdrop-blur-md w-14 h-14 z-30 transition-all duration-300 rounded-full" />
             </Carousel>
 
             {/* Pagination Dots - Glassmorphic */}
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+            <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-4 z-30">
                 {Array.from({ length: count }).map((_, index) => (
                     <button
                         key={index}
