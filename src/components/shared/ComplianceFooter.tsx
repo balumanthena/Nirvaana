@@ -13,7 +13,7 @@ export function ComplianceFooter() {
                     <div className="space-y-6">
                         <Link href="/" className="block relative h-16 w-48 md:h-20 md:w-64">
                             <NextImage
-                                src="/images/logologo.png"
+                                src="/images/Untitled_design__10_-removebg-preview.png"
                                 alt={CONFIG.BRAND_NAME}
                                 fill
                                 className="object-contain object-left"
