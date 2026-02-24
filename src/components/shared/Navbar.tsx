@@ -96,7 +96,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center gap-2">
                     <div className="relative h-12 w-48 md:h-20 md:w-80">
                         <NextImage
-                            src="/images/Untitled_design__10_-removebg-preview.png"
+                            src="/images/ChatGPT_Image_Feb_24__2026__04_24_29_PM_1-removebg-preview.png"
                             alt="Nirvaana Financial Services"
                             fill
                             className="object-contain object-left"

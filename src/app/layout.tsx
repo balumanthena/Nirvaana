@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/Untitled_design__10_-removebg-preview.png', // Fallback or main OG image
+        url: '/images/ChatGPT_Image_Feb_24__2026__04_24_29_PM_1-removebg-preview.png', // Fallback or main OG image
         width: 1200,
         height: 630,
         alt: CONFIG.BRAND_NAME,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${CONFIG.BRAND_NAME} | Financial Advisor`,
     description: CONFIG.TAGLINE,
-    images: ['/images/Untitled_design__10_-removebg-preview.png'],
+    images: ['/images/ChatGPT_Image_Feb_24__2026__04_24_29_PM_1-removebg-preview.png'],
   },
   keywords: [
     "Financial Planner Karimnagar",
