@@ -76,6 +76,26 @@ export interface BlogPost {
     pillarSlug?: string;
 }
 
+export interface SerializedBlogPost extends Omit<BlogPost, 'createdAt' | 'publishedAt'> {
+    createdAt: { seconds: number; nanoseconds: number };
+    publishedAt: { seconds: number; nanoseconds: number } | null;
+}
+
+// Helper to convert Firestore Timestamps to plain objects for Client Components
+export const serializeBlog = (blog: BlogPost): SerializedBlogPost => {
+    return {
+        ...blog,
+        createdAt: blog.createdAt ? {
+            seconds: blog.createdAt.seconds,
+            nanoseconds: blog.createdAt.nanoseconds
+        } : { seconds: Date.now() / 1000, nanoseconds: 0 }, // Fallback for edge cases
+        publishedAt: blog.publishedAt ? {
+            seconds: blog.publishedAt.seconds,
+            nanoseconds: blog.publishedAt.nanoseconds
+        } : null,
+    };
+};
+
 const BLOGS_COLLECTION = "blogs";
 
 export const createBlog = async (blog: Omit<BlogPost, 'id' | 'createdAt' | 'publishedAt'>) => {

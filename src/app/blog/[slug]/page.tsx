@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
-import { getBlogBySlug, getRelatedBlogs, incrementViews, getClusterBlogs } from "@/lib/blog-db";
+import { getBlogBySlug, getRelatedBlogs, incrementViews, getClusterBlogs, serializeBlog } from "@/lib/blog-db";
 import { CONFIG } from "@/content/config";
 import { Calendar, ChevronRight, Clock, Eye, List, User } from "lucide-react";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export async function generateMetadata(
             description: blog.metaDescription || blog.excerpt,
             images: [blog.featuredImage],
             type: "article",
-            publishedTime: blog.publishedAt?.toDate().toISOString(),
+            publishedTime: blog.publishedAt ? new Date(blog.publishedAt.seconds * 1000).toISOString() : undefined,
         },
         twitter: {
             card: "summary_large_image",
@@ -119,8 +119,8 @@ export default async function BlogDetailPage({ params }: Props) {
         "headline": blog.seoTitle || blog.title,
         "description": blog.metaDescription || blog.excerpt,
         "image": blog.featuredImage,
-        "datePublished": blog.publishedAt?.toDate().toISOString(),
-        "dateModified": blog.publishedAt?.toDate().toISOString(),
+        "datePublished": blog.publishedAt ? new Date(blog.publishedAt.seconds * 1000).toISOString() : undefined,
+        "dateModified": blog.publishedAt ? new Date(blog.publishedAt.seconds * 1000).toISOString() : undefined,
         "author": {
             "@type": "Person",
             "name": blog.author || "Nirvaana Wealth"
@@ -151,6 +151,12 @@ export default async function BlogDetailPage({ params }: Props) {
             }
         }))
     } : null;
+
+    // Serialize data for Client Components
+    const serializedBlog = serializeBlog(blog);
+    const serializedRelatedBlogs = relatedBlogs.map(serializeBlog);
+    const serializedClusterArticles = clusterArticles.map(serializeBlog);
+    const serializedPillarArticle = pillarArticle ? serializeBlog(pillarArticle) : null;
 
     return (
         <main className="pt-40 pb-20 bg-white min-h-screen selection:bg-blue-100">
@@ -194,7 +200,7 @@ export default async function BlogDetailPage({ params }: Props) {
                             <span className="font-bold text-slate-900">{blog.author || "Nirvaana Expert"}</span>
                         </div>
                         <span className="text-slate-300">•</span>
-                        <span>{blog.publishedAt?.toDate().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                        <span>{new Date(serializedBlog.publishedAt?.seconds! * 1000).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                         <span className="text-slate-300">•</span>
                         <div className="flex items-center gap-1.5 text-blue-600 font-semibold">
                             <Clock className="w-4 h-4" />
@@ -221,13 +227,13 @@ export default async function BlogDetailPage({ params }: Props) {
                 </header>
 
                 <BlogContent
-                    blog={blog}
+                    blog={serializedBlog}
                     renderedContent={renderedContent}
                     toc={toc}
-                    relatedBlogs={relatedBlogs}
-                    clusterArticles={clusterArticles}
+                    relatedBlogs={serializedRelatedBlogs}
+                    clusterArticles={serializedClusterArticles}
                     pillarSlug={clusterPillarSlug}
-                    pillarArticle={pillarArticle}
+                    pillarArticle={serializedPillarArticle}
                 />
             </article>
         </main>

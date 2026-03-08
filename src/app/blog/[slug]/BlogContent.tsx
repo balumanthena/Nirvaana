@@ -5,16 +5,16 @@ import { List, Calendar, Clock, Eye, ChevronRight, User, Sparkles } from "lucide
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { BlogPost } from "@/lib/blog-db";
+import { SerializedBlogPost } from "@/lib/blog-db";
 
 interface BlogContentProps {
-    blog: BlogPost;
+    blog: SerializedBlogPost;
     renderedContent: string;
     toc: { text: string; id: string }[];
-    relatedBlogs: BlogPost[];
-    clusterArticles?: BlogPost[];
+    relatedBlogs: SerializedBlogPost[];
+    clusterArticles?: SerializedBlogPost[];
     pillarSlug?: string;
-    pillarArticle?: BlogPost | null;
+    pillarArticle?: SerializedBlogPost | null;
 }
 
 export default function BlogContent({ blog, renderedContent, toc, relatedBlogs, clusterArticles = [], pillarSlug, pillarArticle }: BlogContentProps) {
@@ -99,8 +99,8 @@ export default function BlogContent({ blog, renderedContent, toc, relatedBlogs, 
                                 <Link
                                     href={`/blog/${pillarArticle.slug}`}
                                     className={`flex items-center gap-4 p-4 rounded-xl transition-all border ${pillarArticle.slug === blog.slug
-                                            ? "bg-white shadow-md border-blue-200"
-                                            : "bg-slate-50/50 border-slate-100 hover:bg-white hover:shadow-sm hover:text-blue-900"
+                                        ? "bg-white shadow-md border-blue-200"
+                                        : "bg-slate-50/50 border-slate-100 hover:bg-white hover:shadow-sm hover:text-blue-900"
                                         }`}
                                 >
                                     <div className={`w-2.5 h-2.5 rounded-full ${pillarArticle.slug === blog.slug ? "bg-blue-600 ring-4 ring-blue-100" : "bg-blue-400"}`} />
