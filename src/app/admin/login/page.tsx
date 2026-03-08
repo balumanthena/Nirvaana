@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
@@ -16,6 +16,7 @@ export default function AdminLoginPage() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [resetSent, setResetSent] = useState(false);
     const router = useRouter();
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -30,6 +31,24 @@ export default function AdminLoginPage() {
             setError(err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password'
                 ? "Invalid credentials. Please try again."
                 : "An error occurred. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
+    };
+    const handleForgotPassword = async () => {
+        if (!email) {
+            setError("Please enter your email address first.");
+            return;
+        }
+        setError("");
+        setLoading(true);
+        try {
+            await sendPasswordResetEmail(auth, email);
+            setResetSent(true);
+        } catch (err: any) {
+            setError(err.code === 'auth/user-not-found'
+                ? "No account found with this email."
+                : "Failed to send reset email. Contact support.");
         } finally {
             setLoading(false);
         }
@@ -146,7 +165,13 @@ export default function AdminLoginPage() {
                         <div className="space-y-2">
                             <div className="flex justify-between items-center ml-1">
                                 <label className="text-sm font-bold text-slate-700 uppercase tracking-widest">Password</label>
-                                <button type="button" className="text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors">Forgot?</button>
+                                <button
+                                    type="button"
+                                    onClick={handleForgotPassword}
+                                    className="text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+                                >
+                                    Forgot?
+                                </button>
                             </div>
                             <div className="relative group">
                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-amber-600 transition-colors">
@@ -173,6 +198,17 @@ export default function AdminLoginPage() {
                                 >
                                     <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
                                     {error}
+                                </motion.div>
+                            )}
+                            {resetSent && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="p-4 bg-green-50 border border-green-100 rounded-xl flex items-center gap-3 text-green-700 text-sm"
+                                >
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                    Password reset email sent! Check your inbox.
                                 </motion.div>
                             )}
                         </AnimatePresence>
