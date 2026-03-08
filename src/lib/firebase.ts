@@ -12,10 +12,20 @@ const firebaseConfig = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+const isConfigured = !!process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 
-export { app, auth, db, storage };
+let app;
+let auth: any;
+let db: any;
+let storage: any;
+
+if (isConfigured) {
+    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+    storage = getStorage(app);
+} else {
+    console.warn("Firebase environment variables are missing. Firebase features will be disabled.");
+}
+
+export { app, auth, db, storage, isConfigured };
