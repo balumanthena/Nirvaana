@@ -169,34 +169,36 @@ export default async function BlogDetailPage({ params }: Props) {
             )}
 
             <article className="max-w-[1440px] mx-auto">
-                {/* Visual Header - Distinct from Content Column */}
-                <header className="px-4 md:px-6 text-center mb-24 max-w-5xl mx-auto">
-                    <div className="flex justify-center mb-10">
-                        <span className="bg-slate-900 text-white px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.3em] shadow-2xl">
+                {/* Visual Header - Focused & Professional */}
+                <header className="px-4 md:px-6 text-center mb-16 pt-8">
+                    <div className="flex justify-center mb-8">
+                        <span className="text-blue-600 text-[11px] font-bold uppercase tracking-[0.3em] px-4 py-1.5 bg-blue-50 rounded-full border border-blue-100">
                             {blog.category}
                         </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-slate-900 mb-14 leading-[1.05] tracking-tight">
-                        {blog.title}
-                    </h1>
+                    <div className="max-w-[850px] mx-auto space-y-6">
+                        <h1 className="text-[32px] md:text-[40px] lg:text-[52px] font-serif font-bold text-slate-900 leading-[1.15] tracking-tight line-clamp-2">
+                            {blog.title}
+                        </h1>
 
-                    <div className="flex flex-wrap items-center justify-center gap-10 mb-20 text-slate-500 font-bold uppercase tracking-[0.2em] text-[10px] bg-slate-50 font-sans py-6 px-12 rounded-full border border-slate-100 max-w-fit mx-auto shadow-sm">
-                        <div className="flex items-center gap-3 text-slate-900">
-                            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 border-2 border-white shadow-sm">
-                                <User className="w-4 h-4" />
-                            </div>
-                            <span className="text-[12px]">By {blog.author || "Nirvaana Expert"}</span>
+                        {blog.excerpt && (
+                            <p className="text-xl md:text-2xl text-slate-500 font-sans leading-relaxed font-light">
+                                {blog.excerpt}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-slate-500 font-sans text-sm md:text-base mb-16">
+                        <div className="flex items-center gap-2">
+                            <span className="font-bold text-slate-900">{blog.author || "Nirvaana Expert"}</span>
                         </div>
-                        <span className="text-slate-200 hidden md:block">|</span>
-                        <div className="flex items-center gap-2.5">
-                            <Calendar className="w-4 h-4" />
-                            <span className="text-[11px]">{blog.publishedAt?.toDate().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
-                        </div>
-                        <span className="text-slate-200 hidden md:block">|</span>
-                        <div className="flex items-center gap-2.5 text-blue-900">
+                        <span className="text-slate-300">•</span>
+                        <span>{blog.publishedAt?.toDate().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                        <span className="text-slate-300">•</span>
+                        <div className="flex items-center gap-1.5 text-blue-600 font-semibold">
                             <Clock className="w-4 h-4" />
-                            <span className="text-[11px]">{blog.readingTime || 5} min read</span>
+                            <span>{blog.readingTime || 5} min read</span>
                         </div>
                     </div>
 
