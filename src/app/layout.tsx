@@ -75,6 +75,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { AuthProvider } from "@/components/admin/AuthProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -97,21 +99,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-slate-50 text-slate-900 overflow-x-hidden`}>
-        <JsonLd />
-        {/* Google Analytics - Placeholder for ID */}
-        {/* <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-          `}
-        </Script> */}
-        <Navbar />
-        {children}
-        <WhatsAppButton />
-        <ComplianceFooter />
+        <AuthProvider>
+          <JsonLd />
+          <Navbar />
+          {children}
+          <WhatsAppButton />
+          <ComplianceFooter />
+        </AuthProvider>
       </body>
     </html>
   );

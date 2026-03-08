@@ -2,7 +2,13 @@
 
 import React from "react";
 
+import { usePathname } from "next/navigation";
+
 export const WhatsAppButton = () => {
+    const pathname = usePathname();
+    const isAdminPage = pathname.startsWith("/admin");
+
+    if (isAdminPage) return null;
     const phoneNumber = "919182026548";
     const message = "Hi Nirvana Wealth Planner, I’m looking for financial guidance.";
     const encodedMessage = encodeURIComponent(message);

@@ -44,6 +44,7 @@ const NAV_LINKS = [
             { name: "Investment Recommendations", href: "/resources/investment-recommendations" },
         ]
     },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -59,6 +60,7 @@ export function Navbar() {
     const [mounted, setMounted] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+    const isAdminPage = pathname.startsWith("/admin");
 
     useEffect(() => {
         setMounted(true);
@@ -69,17 +71,8 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    if (!mounted) {
-        return (
-            <header className="fixed top-0 w-full z-50 py-4 bg-white/95 border-b border-white/10">
-                <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                    {/* Static Logo Placeholder to prevent layout shift */}
-                    <div className="flex items-center gap-2">
-                        <div className="relative h-20 w-80" />
-                    </div>
-                </div>
-            </header>
-        );
+    if (!mounted || isAdminPage) {
+        return null;
     }
 
     return (

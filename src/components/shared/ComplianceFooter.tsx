@@ -1,10 +1,18 @@
+"use client";
+
 import NextImage from "next/image";
 import Link from "next/link";
 import { CONFIG } from "@/content/config";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
+import { usePathname } from "next/navigation";
+
 export function ComplianceFooter() {
+    const pathname = usePathname();
+    const isAdminPage = pathname.startsWith("/admin");
+
+    if (isAdminPage) return null;
     return (
         <footer className="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
             <div className="container mx-auto px-4 md:px-6">

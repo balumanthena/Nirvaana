@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { SERVICES } from '@/content/services';
 import { CONFIG } from '@/content/config';
+import { getAllBlogs } from '@/lib/blog-db';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = CONFIG.SITE_URL;
 
     // Static routes
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '',
         '/about',
         '/services',
+        '/blog',
         '/contact',
         '/schedule',
     ].map((route) => ({
@@ -27,5 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    return [...routes, ...serviceRoutes];
+    // Dynamic blog routes
+    const blogs = await getAllBlogs(true);
+    const blogRoutes = blogs.map((blog) => ({
+        url: `${baseUrl}/blog/${blog.slug}`,
+        lastModified: blog.publishedAt ? blog.publishedAt.toDate() : new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+    }));
+
+    return [...routes, ...serviceRoutes, ...blogRoutes];
 }
