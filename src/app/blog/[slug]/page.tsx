@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Script from "next/script";
 import { Card, CardContent } from "@/components/ui/card";
 import BlogContent from "./BlogContent";
+import RealtimeViews from "@/components/blog/RealtimeViews";
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -206,6 +207,8 @@ export default async function BlogDetailPage({ params }: Props) {
                             <Clock className="w-4 h-4" />
                             <span>{blog.readingTime || 5} min read</span>
                         </div>
+                        <span className="text-slate-300">•</span>
+                        <RealtimeViews blogId={blog.id!} initialViews={blog.views || 0} />
                     </div>
 
                     <div className="max-w-6xl mx-auto rounded-[4rem] overflow-hidden shadow-[0_60px_100px_-25px_rgba(0,0,0,0.15)] bg-slate-100 ring-1 ring-slate-200/50 relative group">

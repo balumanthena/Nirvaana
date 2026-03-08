@@ -150,6 +150,14 @@ export const getBlogById = async (id: string): Promise<BlogPost | null> => {
     return null;
 };
 
+export const subscribeToBlog = (id: string, callback: (blog: BlogPost) => void, onError?: (error: any) => void) => {
+    return onSnapshot(doc(db, BLOGS_COLLECTION, id), (snapshot) => {
+        if (snapshot.exists()) {
+            callback({ id: snapshot.id, ...snapshot.data() } as BlogPost);
+        }
+    }, onError);
+};
+
 export const getRelatedBlogs = async (category: string, currentId: string, tags: string[] = []): Promise<BlogPost[]> => {
     const q = query(
         collection(db, BLOGS_COLLECTION),

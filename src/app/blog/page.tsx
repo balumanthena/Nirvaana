@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { subscribeToBlogs, BlogPost } from "@/lib/blog-db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Sparkles, Eye } from "lucide-react";
 import Link from "next/link";
 
 export default function BlogListPage() {
@@ -179,6 +179,11 @@ export default function BlogListPage() {
                                             <span className="flex items-center gap-1.5">
                                                 <Clock className="w-3 h-3" />
                                                 {blog.readingTime || 5} min read
+                                            </span>
+                                            <span className="h-1 w-1 bg-slate-300 rounded-full"></span>
+                                            <span className="flex items-center gap-1.5 text-blue-600 font-bold">
+                                                <Eye className="w-3 h-3" />
+                                                {blog.views || 0}
                                             </span>
                                         </div>
                                         <CardTitle className="text-2xl font-serif text-slate-900 group-hover:text-blue-900 transition-colors line-clamp-2 leading-tight">
