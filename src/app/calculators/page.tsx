@@ -14,7 +14,7 @@ export default function CalculatorsPage() {
     const appSchema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Nirvana Wealth Financial Calculators",
+        "name": "Nirvana Wise Wealth Calculators",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
         "offers": {

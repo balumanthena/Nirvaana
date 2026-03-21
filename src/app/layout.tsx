@@ -13,10 +13,10 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 
 export const metadata: Metadata = {
   title: {
-    default: "Nirvana Wealth Planner | Financial Planning Advisor",
-    template: `%s | Nirvana Wealth Planner`,
+    default: "Nirvana Wise Wealth | Financial Planning Advisor",
+    template: `%s | Nirvana Wise Wealth`,
   },
-  description: "Nirvana Wealth Planner offers personalized financial planning and investment advice. Secure your future with our expert guidance.",
+  description: "Nirvana Wise Wealth offers personalized financial planning and investment advice. Secure your future with our expert guidance.",
   metadataBase: new URL(CONFIG.SITE_URL),
   alternates: {
     canonical: '/',
@@ -85,6 +85,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${CONFIG.GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+        {/* Microsoft Clarity */}
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{

@@ -18,7 +18,7 @@ export default function Home() {
 
       {/* A) Semantic H1 for SEO */}
       <h1 className="sr-only">
-        Nirvana Wealth Planner - Comprehensive Financial Planning & Investment Services
+        Nirvana Wise Wealth - Comprehensive Financial Planning & Investment Services
       </h1>
 
       {/* A) Hero Section */}

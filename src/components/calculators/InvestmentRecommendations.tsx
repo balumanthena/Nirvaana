@@ -97,9 +97,9 @@ export function InvestmentRecommendations() {
 
     const recommendation = getRecommendation();
 
-    const whatsappMessage = `Hi Nirvana Wealth Planner, I used the Investment Engine. 
-    My Profile: Age ${age}, Investment ₹${amount}, Risk: ${risk}, Goal: ${goal}. 
-    Suggested: ${recommendation.suggestedFunds.join(", ")}. Please guide me.`;
+    const whatsappMessage = `Hi Nirvana Wise Wealth, I used the Investment Engine. ` + 
+    `My Profile: Age ${age}, Investment ₹${amount}, Risk: ${risk}, Goal: ${goal}. ` + 
+    `Suggested: ${recommendation.suggestedFunds.join(", ")}. Please guide me.`;
 
     return (
         <FadeIn>

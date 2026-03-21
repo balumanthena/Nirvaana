@@ -90,7 +90,7 @@ export function Navbar() {
                     <div className="relative h-12 w-48 md:h-20 md:w-80">
                         <NextImage
                             src="/images/brand-logo.png"
-                            alt="Nirvaana Financial Services"
+                            alt="Nirvana Wise Wealth"
                             fill
                             className="object-contain object-left"
                             priority
@@ -230,7 +230,7 @@ export function Navbar() {
                                     </Button>
 
                                     <div className="mt-4 text-center">
-                                        <p className="text-xs text-slate-400 uppercase tracking-widest">Nirvaana Financial Services</p>
+                                        <p className="text-xs text-slate-400 uppercase tracking-widest">Nirvana Wise Wealth</p>
                                     </div>
                                 </div>
                             </div>

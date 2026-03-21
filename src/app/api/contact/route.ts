@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
         // Email content
         const mailOptions = {
-            from: '"Nirvana Wealth Planner Website" <info@nirvanawealthplanner.com>',
+            from: '"Nirvana Wise Wealth Website" <info@nirvanawealthplanner.com>',
             to: 'info@nirvanawealthplanner.com',
             replyTo: email,
             subject: `New Contact Form Submission from ${name}`,

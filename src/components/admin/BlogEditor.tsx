@@ -30,7 +30,7 @@ export default function BlogEditor() {
         featuredImage: "",
         category: "",
         tags: [],
-        author: "Nirvana Wealth Planner",
+        author: "Nirvana Wise Wealth",
         readingTime: 0,
         views: 0,
         status: "draft",

@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
                             Secure Access for financial Architects.
                         </h1>
                         <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                            Welcome back to the Nirvana Command Center. Manage insights, advisory tools, and client resources with absolute precision.
+                            Welcome back to the Nirvana Wise Wealth Command Center. Manage insights, advisory tools, and client resources with absolute precision.
                         </p>
                     </motion.div>
 
@@ -157,7 +157,7 @@ export default function AdminLoginPage() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    placeholder="admin@nirvaana.in"
+                                    placeholder="admin@nirvanawisewealth.com"
                                 />
                             </div>
                         </div>
@@ -228,7 +228,7 @@ export default function AdminLoginPage() {
                         </Button>
 
                         <p className="text-center text-sm text-slate-400 pt-4">
-                            Strictly for Nirvana internal use only.
+                            Strictly for Nirvana Wise Wealth internal use only.
                         </p>
                     </form>
                 </motion.div>

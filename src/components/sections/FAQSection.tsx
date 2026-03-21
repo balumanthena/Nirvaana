@@ -11,7 +11,7 @@ import { CONFIG } from "@/content/config";
 
 const FAQS = [
     {
-        question: "What services does Nirvana Wealth Planner offer?",
+        question: "What services does Nirvana Wise Wealth offer?",
         answer: "We offer comprehensive financial planning including retirement planning, goal-based investing (SIPs), insurance analysis (life & health), risk profiling, and emergency fund planning. We act as your holistic wealth partner."
     },
     {
@@ -27,7 +27,7 @@ const FAQS = [
         answer: "Yes, retirement planning is one of our core specializations. We help you estimate your future expense requirements (inflation-adjusted) and build a customized corpus strategy to ensure financial freedom."
     },
     {
-        question: "How can I contact Nirvana Wealth Planner?",
+        question: "How can I contact Nirvana Wise Wealth?",
         answer: `You can reach us via WhatsApp at +91 9182026548, email us at ${CONFIG.EMAIL}, or schedule a free consultation call directly through our website.`
     }
 ];

@@ -173,7 +173,7 @@ export function RiskProfileQuiz() {
 
     if (showResult) {
         const result = calculateResult();
-        const whatsappMessage = `Hi Nirvana Wealth Planner, my risk profile is ${result.label}. Please guide me.`;
+        const whatsappMessage = `Hi Nirvana Wise Wealth, my risk profile is ${result.label}. Please guide me.`;
 
         return (
             <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 text-center animate-in zoom-in-95 duration-500">

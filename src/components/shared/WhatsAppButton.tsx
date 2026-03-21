@@ -10,7 +10,7 @@ export const WhatsAppButton = () => {
 
     if (isAdminPage) return null;
     const phoneNumber = "919182026548";
-    const message = "Hi Nirvana Wealth Planner, I’m looking for financial guidance.";
+    const message = "Hi Nirvana Wise Wealth, I’m looking for financial guidance.";
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

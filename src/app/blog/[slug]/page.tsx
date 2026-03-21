@@ -124,11 +124,11 @@ export default async function BlogDetailPage({ params }: Props) {
         "dateModified": blog.publishedAt ? new Date(blog.publishedAt.seconds * 1000).toISOString() : undefined,
         "author": {
             "@type": "Person",
-            "name": blog.author || "Nirvaana Wealth"
+            "name": blog.author || "Nirvana Wise Wealth"
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Nirvaana Wealth Planner",
+            "name": "Nirvana Wise Wealth",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://nirvaanawealth.com/logo.png" // Update with real URL if available
@@ -198,7 +198,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
                     <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-slate-500 font-sans text-sm md:text-base mb-16">
                         <div className="flex items-center gap-2">
-                            <span className="font-bold text-slate-900">{blog.author || "Nirvaana Expert"}</span>
+                            <span className="font-bold text-slate-900">{blog.author || "Nirvana Expert"}</span>
                         </div>
                         <span className="text-slate-300">•</span>
                         <span>{new Date(serializedBlog.publishedAt?.seconds! * 1000).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>

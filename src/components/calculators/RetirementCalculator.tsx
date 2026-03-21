@@ -194,7 +194,7 @@ export const RetirementCalculator = () => {
                     </Link>
 
                     <Link
-                        href={`https://wa.me/919182026548?text=${encodeURIComponent("Hi Nirvana Wealth Planner, I used the retirement planner and want help planning my retirement.")}`}
+                        href={`https://wa.me/919182026548?text=${encodeURIComponent("Hi Nirvana Wise Wealth, I used the retirement planner and want help planning my retirement.")}`}
                         target="_blank"
                         onClick={() => {
                             if (typeof window !== "undefined" && (window as any).clarity) {

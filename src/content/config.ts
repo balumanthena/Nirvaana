@@ -1,6 +1,6 @@
 export const CONFIG = {
-  BRAND_NAME: "Nirvana Wealth Planner",
-  TAGLINE: "Nirvana Wealth Planner: Your trusted partner for comprehensive financial planning, retirement strategies, insurance analysis, and risk-adjusted wealth management",
+  BRAND_NAME: "Nirvana Wise Wealth",
+  TAGLINE: "Nirvana Wise Wealth: Your trusted partner for comprehensive financial planning, retirement strategies, insurance analysis, and risk-adjusted wealth management",
   SITE_URL: "https://nirvanawealthplanner.com",
   EMAIL: "info@nirvanawealthplanner.com",
   PHONE: "+91 9182026548",
@@ -29,5 +29,6 @@ export const CONFIG = {
   SOCIAL_LINKS: {
     LINKEDIN: "#",
     TWITTER: "#"
-  }
+  },
+  GA_MEASUREMENT_ID: "G-XXXXXXXXXX" // Replace with real ID
 }

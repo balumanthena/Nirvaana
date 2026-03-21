@@ -191,7 +191,7 @@ export default function BlogContent({ blog, renderedContent, toc, relatedBlogs, 
                 <section className="mt-24 w-full max-w-[720px] p-10 md:p-16 bg-[#002B5B] rounded-[2rem] text-white text-center shadow-2xl shadow-blue-900/40 border border-blue-800">
                     <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">Master Your Financial Future</h2>
                     <p className="text-blue-100 text-lg md:text-xl mb-12 font-sans leading-relaxed opacity-90">
-                        Join thousands of families securing their legacy with Nirvaana. Our experts build custom blueprints for your specific goals.
+                        Join thousands of families securing their legacy with Nirvana Wise Wealth. Our experts build custom blueprints for your specific goals.
                     </p>
                     <Link href="/schedule">
                         <Button size="lg" className="bg-[#EFA00B] hover:bg-[#D9910A] text-slate-900 text-xl px-12 py-8 rounded-full font-bold shadow-xl group h-auto">

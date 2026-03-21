@@ -173,7 +173,7 @@ export const SipCalculator = () => {
                     </Link>
 
                     <Link
-                        href={`https://wa.me/919182026548?text=${encodeURIComponent("Hi Nirvana Wealth Planner, I calculated my SIP and would like personalized investment advice.")}`}
+                        href={`https://wa.me/919182026548?text=${encodeURIComponent("Hi Nirvana Wise Wealth, I calculated my SIP and would like personalized investment advice.")}`}
                         target="_blank"
                         onClick={() => {
                             if (typeof window !== "undefined" && (window as any).clarity) {

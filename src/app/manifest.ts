@@ -4,7 +4,7 @@ import { CONFIG } from '@/content/config';
 export default function manifest(): MetadataRoute.Manifest {
     return {
         name: CONFIG.BRAND_NAME,
-        short_name: "Nirvana",
+        short_name: "Nirvana Wise Wealth",
         description: CONFIG.TAGLINE,
         start_url: '/',
         display: 'standalone',

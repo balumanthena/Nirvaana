@@ -56,11 +56,11 @@ export default function AIGeneratorPage() {
                 featuredImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
                 category: "Market Insights",
                 tags: [topic.toLowerCase(), "pillar", "authority"],
-                author: "Nirvaana Strategic AI",
+                author: "Nirvana Wise Wealth Strategic AI",
                 readingTime: 0,
                 views: 0,
                 status: "draft" as const,
-                seoTitle: `${pillarTitle} | Nirvaana Wealth`,
+                seoTitle: `${pillarTitle} | Nirvana Wise Wealth`,
                 metaDescription: `Read our comprehensive pillar guide on ${topic}. Learn how to optimize your financial strategy today.`,
                 featured: true,
                 faqs: [],
@@ -103,11 +103,11 @@ export default function AIGeneratorPage() {
                     featuredImage: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop",
                     category: "Financial Planning",
                     tags: [topic.toLowerCase(), subTopic.toLowerCase()],
-                    author: "Nirvaana Research AI",
+                    author: "Nirvana Wise Wealth Research AI",
                     readingTime: 0,
                     views: 0,
                     status: "draft" as const,
-                    seoTitle: `${title} | Nirvaana Wealth`,
+                    seoTitle: `${title} | Nirvana Wise Wealth`,
                     metaDescription: `Discover the specific role of ${subTopic} in your overall ${topic} planning.`,
                     featured: false,
                     faqs: [],
@@ -142,7 +142,7 @@ export default function AIGeneratorPage() {
                     <CardHeader>
                         <div className="flex items-center gap-2 text-blue-600 mb-2">
                             <Sparkles className="w-5 h-5" />
-                            <span className="text-xs font-bold uppercase tracking-widest">Powered by Nirvaana AI</span>
+                            <span className="text-xs font-bold uppercase tracking-widest">Powered by Nirvana Wise Wealth AI</span>
                         </div>
                         <CardTitle className="font-serif text-3xl">AI SEO Content Generator</CardTitle>
                         <CardDescription>

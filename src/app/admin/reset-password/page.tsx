@@ -229,7 +229,7 @@ export default function ResetPasswordPage() {
                             <ShieldCheck className="w-6 h-6" />
                         </div>
                         <div>
-                            <p className="text-sm font-bold text-white uppercase tracking-widest">Nirvana Guardian</p>
+                            <p className="text-sm font-bold text-white uppercase tracking-widest">Nirvana Wise Wealth Guardian</p>
                             <p className="text-xs text-slate-400">Advanced identity protection for financial architects.</p>
                         </div>
                     </motion.div>

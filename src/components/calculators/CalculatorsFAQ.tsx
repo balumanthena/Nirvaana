@@ -27,7 +27,7 @@ const FAQS = [
     },
     {
         question: "Do you help with executing these investments?",
-        answer: "Absolutely. Nirvana Wealth Planner is a full-service financial advisory. We can help you select the right funds, set up SIPs, and manage your portfolio. Book a free consultation to get started."
+        answer: "Absolutely. Nirvana Wise Wealth is a full-service financial advisory. We can help you select the right funds, set up SIPs, and manage your portfolio. Book a free consultation to get started."
     }
 ];
 

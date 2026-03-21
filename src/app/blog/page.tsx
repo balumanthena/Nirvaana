@@ -126,7 +126,7 @@ export default function BlogListPage() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h1 className="text-5xl md:text-6xl font-serif font-bold text-slate-900 mb-8 leading-tight">
-                        Nirvaana Insights
+                        Nirvana Wise Wealth Insights
                     </h1>
                     <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium">
                         Expert financial wisdom for building sustainable wealth and cross-generational legacy in India.
@@ -155,7 +155,7 @@ export default function BlogListPage() {
                                         ) : (
                                             <div className="w-full h-full flex flex-col items-center justify-center text-slate-300 gap-2">
                                                 <Calendar className="w-8 h-8 opacity-20" />
-                                                <span className="font-serif italic text-xs tracking-widest uppercase opacity-40">Nirvaana Wealth</span>
+                                                <span className="font-serif italic text-xs tracking-widest uppercase opacity-40">Nirvana Wise Wealth</span>
                                             </div>
                                         )}
                                         {blog.featured && (
