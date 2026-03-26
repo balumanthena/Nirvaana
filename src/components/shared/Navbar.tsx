@@ -89,7 +89,7 @@ export function Navbar() {
                 <Link href="/" className="flex items-center gap-2">
                     <div className="relative h-12 w-48 md:h-20 md:w-80">
                         <NextImage
-                            src="/images/brand-logo.png"
+                            src="/images/Untitled_design__15_-removebg-preview.png"
                             alt="Nirvana Wise Wealth"
                             fill
                             className="object-contain object-left"

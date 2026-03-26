@@ -188,7 +188,7 @@ export default function ResetPasswordPage() {
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-slate-900 to-amber-900/20 z-10" />
                     <Image
-                        src="/images/brand-logo.png"
+                        src="/images/Untitled_design__15_-removebg-preview.png"
                         alt="Background"
                         fill
                         className="object-cover opacity-20 blur-sm scale-110"
@@ -201,7 +201,7 @@ export default function ResetPasswordPage() {
                     className="relative z-10"
                 >
                     <Image
-                        src="/images/brand-logo.png"
+                        src="/images/Untitled_design__15_-removebg-preview.png"
                         alt={CONFIG.BRAND_NAME}
                         width={240}
                         height={60}
