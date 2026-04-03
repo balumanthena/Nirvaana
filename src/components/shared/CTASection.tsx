@@ -23,7 +23,7 @@ export function CTASection() {
                     Ready to take control of your <br className="hidden md:block" />financial future?
                 </h2>
                 <p className="text-slate-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                    No hidden commissions. No biased advice. Just pure financial clarity designed for you.
+                    Personalized guidance. Tailored solutions. Transparent at every step
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

@@ -13,7 +13,7 @@ export default function PricingPage() {
                         We believe in complete transparency. Our fees are disclosed upfront and are based on the complexity of your financial life, not your net worth.
                     </p>
                     <p className="text-sm font-semibold text-emerald-600 uppercase tracking-wide">
-                        No Commissions • No Hidden Charges • No Surprises
+                        Personalized guidance. Tailored solutions. Transparent at every step
                     </p>
                 </div>
 

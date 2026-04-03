@@ -35,7 +35,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         <li>Fiduciary duty to put your interest first.</li>
                     </ul>
                     <p>
-                        When you pay a flat fee, you know exactly what you are getting. There are no hidden costs eating into your compounding. Over a period of 20 years, saving 1% in commissions annually can increase your corpus by over 20-30%. That is the power of direct plans and fee-only advice.
+                        When you pay a flat fee, you know exactly what you are getting.Over a period of 20 years, saving 1% in commissions annually can increase your corpus by over 20-30%. That is the power of direct plans and fee-only advice.
                     </p>
                 </article>
 

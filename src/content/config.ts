@@ -1,8 +1,8 @@
 export const CONFIG = {
   BRAND_NAME: "Nirvana Wise Wealth",
-  TAGLINE: "Nirvana Wise Wealth: Your trusted partner for comprehensive financial planning, retirement strategies, insurance analysis, and risk-adjusted wealth management",
-  SITE_URL: "https://nirvanawealthplanner.com",
-  EMAIL: "info@nirvanawealthplanner.com",
+  TAGLINE: "AMFI registered Mutual Fund Distributor.Reg No ARN-353900 ",
+  SITE_URL: "https://nirvanawise.in/",
+  EMAIL: "info@nirvanawise.in",
   PHONE: "+91 9182026548",
   ADDRESSES: [
     {
@@ -30,8 +30,5 @@ export const CONFIG = {
     LINKEDIN: "#",
     TWITTER: "#"
   },
-  GA_MEASUREMENT_ID: "G-XXXXXXXXXX", // Replace with real ID
-  AMFI_REG_NAME: "Nirvana Wise Wealth",
-  AMFI_DESCRIPTION: "AMFI registered Mutual Fund Distributor.",
-  AMFI_REG_NUMBER: "Reg No ARN-353900"
+
 }
