@@ -30,5 +30,8 @@ export const CONFIG = {
     LINKEDIN: "#",
     TWITTER: "#"
   },
-
+  GA_MEASUREMENT_ID: "G-XXXXXXXXXX", // Replace with actual Google Analytics ID
+  AMFI_REG_NAME: "Nirvana Wise Wealth",
+  AMFI_DESCRIPTION: "AMFI Registered Mutual Fund Distributor",
+  AMFI_REG_NUMBER: "ARN-353900",
 }
