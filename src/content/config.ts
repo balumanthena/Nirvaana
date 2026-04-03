@@ -30,5 +30,5 @@ export const CONFIG = {
     LINKEDIN: "#",
     TWITTER: "#"
   },
-  GA_MEASUREMENT_ID: "G-XXXXXXXXXX", // Update this with your actual Google Analytics ID from the dashboard
+  GA_MEASUREMENT_ID: "G-S3GBM96ZTC", // Update this with your actual Google Analytics ID from the dashboard
 }
