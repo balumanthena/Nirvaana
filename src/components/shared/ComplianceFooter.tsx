@@ -30,11 +30,6 @@ export function ComplianceFooter() {
                         <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
                             {CONFIG.TAGLINE}
                         </p>
-                        <div className="space-y-1 text-xs text-slate-400 font-medium pt-2 border-t border-slate-100">
-                            <p>{CONFIG.AMFI_REG_NAME}</p>
-                            <p>{CONFIG.AMFI_DESCRIPTION}</p>
-                            <p>{CONFIG.AMFI_REG_NUMBER}</p>
-                        </div>
                         <div className="flex items-center gap-4">
                             <a href={CONFIG.SOCIAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-300">
                                 <Linkedin className="w-4 h-4" />
