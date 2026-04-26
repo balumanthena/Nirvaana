@@ -49,6 +49,112 @@ export async function POST(request: Request) {
             }
         }
 
+// Template Constants
+const LOGO_URL = "https://nirvanawise.in/images/Untitled_design__15_-removebg-preview.png";
+const BRAND_COLOR = "#a9742a";
+const BG_LIGHT = "#f5f7fb";
+const CALENDLY_URL = "https://calendly.com/nirvanawealthplanner-info/new-meeting";
+
+function getAdminTemplate(name: string, email: string, message: string) {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; background-color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #f5f5f7; padding: 40px 20px;">
+            <tr>
+                <td align="center">
+                    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 520px; background-color: #ffffff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); overflow: hidden;">
+                        <tr>
+                            <td style="padding: 40px 40px 0 40px; text-align: center;">
+                                <img src="${LOGO_URL}" alt="Nirvana Wise Wealth" style="max-width: 100px; height: auto;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 30px 40px 40px 40px;">
+                                <h1 style="color: #111111; font-size: 20px; font-weight: 600; margin: 0 0 24px 0; text-align: left; letter-spacing: -0.3px;">New Inquiry</h1>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <p style="margin: 0 0 4px 0; font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.5px;">Name</p>
+                                    <p style="margin: 0; font-size: 15px; color: #111111;">${name}</p>
+                                </div>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <p style="margin: 0 0 4px 0; font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
+                                    <p style="margin: 0; font-size: 15px; color: #111111;"><a href="mailto:${email}" style="color: #000000; text-decoration: underline;">${email}</a></p>
+                                </div>
+                                
+                                <div style="margin-bottom: 0;">
+                                    <p style="margin: 0 0 8px 0; font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
+                                    <div style="background-color: #f2f2f2; border-radius: 8px; padding: 16px;">
+                                        <p style="margin: 0; font-size: 15px; color: #333333; line-height: 1.5; white-space: pre-wrap;">${message}</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div style="max-width: 520px; margin: 0 auto; padding-top: 24px; text-align: center;">
+                        <p style="color: #999999; font-size: 12px; margin: 0;">Nirvana Wise Wealth &mdash; Build wealth, the wise way</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    `;
+}
+
+function getUserTemplate(name: string, message: string) {
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; background-color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #f5f5f7; padding: 40px 20px;">
+            <tr>
+                <td align="center">
+                    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 520px; background-color: #ffffff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); overflow: hidden;">
+                        <tr>
+                            <td style="padding: 40px 40px 0 40px; text-align: center;">
+                                <img src="${LOGO_URL}" alt="Nirvana Wise Wealth" style="max-width: 100px; height: auto;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 30px 40px 40px 40px;">
+                                <h1 style="color: #111111; font-size: 22px; font-weight: 600; margin: 0 0 16px 0; text-align: left; letter-spacing: -0.4px;">Hi ${name},</h1>
+                                
+                                <p style="color: #555555; font-size: 15px; line-height: 1.6; margin: 0 0 16px 0;">Thank you for getting in touch with us.</p>
+                                <p style="color: #555555; font-size: 15px; line-height: 1.6; margin: 0 0 24px 0;">We have received your message and our team will be reviewing it shortly. We aim to respond to all inquiries as quickly as possible.</p>
+                                
+                                <div style="background-color: #f2f2f2; border-radius: 8px; padding: 16px; margin-bottom: 32px;">
+                                    <p style="margin: 0; font-size: 14px; color: #555555; line-height: 1.5; white-space: pre-wrap;">${message}</p>
+                                </div>
+                                
+                                <p style="color: #555555; font-size: 15px; line-height: 1.6; margin: 0 0 24px 0;">If you'd like to speak with an advisor immediately, you can schedule a dedicated time with us.</p>
+                                
+                                <div style="text-align: left;">
+                                    <a href="${CALENDLY_URL}" style="display: inline-block; background-color: #000000; color: #ffffff; font-size: 15px; font-weight: 500; text-decoration: none; padding: 12px 20px; border-radius: 8px; text-align: center;">Schedule a Call</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div style="max-width: 520px; margin: 0 auto; padding-top: 24px; text-align: center;">
+                        <p style="color: #999999; font-size: 12px; margin: 0;">Nirvana Wise Wealth &mdash; Build wealth, the wise way</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    `;
+}
+
         // 3. Email Templates
         // A) Admin Email
         const adminMailOptions = {
@@ -56,25 +162,7 @@ export async function POST(request: Request) {
             to: zohoEmail,
             replyTo: email,
             subject: `New Contact Form Submission from ${name}`,
-            html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-                    <div style="background-color: #0f172a; padding: 20px; text-align: center;">
-                        <h2 style="color: #ffffff; margin: 0;">New Contact Inquiry</h2>
-                    </div>
-                    <div style="padding: 30px; background-color: #ffffff;">
-                        <p style="font-size: 16px; color: #334155; margin-bottom: 20px;">You have received a new message from the website contact form.</p>
-                        
-                        <div style="background-color: #f8fafc; padding: 15px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-bottom: 25px;">
-                            <p style="margin: 0 0 10px 0;"><strong>Name:</strong> ${name}</p>
-                            <p style="margin: 0 0 10px 0;"><strong>Email:</strong> ${email}</p>
-                            <p style="margin: 0;"><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-                        </div>
-                        
-                        <h3 style="color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">Message Content</h3>
-                        <p style="color: #475569; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-                    </div>
-                </div>
-            `
+            html: getAdminTemplate(name, email, message)
         };
 
         // B) Auto Reply to User
@@ -82,27 +170,7 @@ export async function POST(request: Request) {
             from: `"Nirvana Wise Wealth" <${zohoEmail}>`,
             to: email,
             subject: "We received your message",
-            html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
-                    <div style="background-color: #0f172a; padding: 20px; text-align: center;">
-                        <h2 style="color: #ffffff; margin: 0;">Nirvana Wise Wealth</h2>
-                    </div>
-                    <div style="padding: 30px; background-color: #ffffff;">
-                        <h3 style="color: #0f172a; margin-top: 0;">Hello ${name},</h3>
-                        <p style="color: #334155; line-height: 1.6;">Thank you for reaching out to us. We have successfully received your message and our team will get back to you shortly.</p>
-                        
-                        <div style="background-color: #f8fafc; padding: 20px; border-radius: 6px; margin: 25px 0;">
-                            <p style="font-size: 14px; color: #64748b; margin-top: 0; margin-bottom: 10px; text-transform: uppercase; font-weight: bold;">Your Message:</p>
-                            <p style="color: #475569; line-height: 1.6; margin: 0; font-style: italic; white-space: pre-wrap;">"${message}"</p>
-                        </div>
-                        
-                        <p style="color: #334155; line-height: 1.6;">If you need immediate assistance, please feel free to call us at our office.</p>
-                        
-                        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
-                        <p style="color: #64748b; font-size: 14px; margin: 0;">Best Regards,<br><strong>The Nirvana Wise Wealth Team</strong></p>
-                    </div>
-                </div>
-            `
+            html: getUserTemplate(name, message)
         };
 
         // 4. Send Emails
