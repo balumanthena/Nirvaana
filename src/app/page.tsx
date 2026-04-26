@@ -18,7 +18,7 @@ export default function Home() {
 
       {/* A) Semantic H1 for SEO */}
       <h1 className="sr-only">
-        Nirvana Wise Wealth - Comprehensive Financial Planning & Investment Services
+        Nirvana Wise Wealth -AMFI registered Mutual Fund Distributor
       </h1>
 
       {/* A) Hero Section */}

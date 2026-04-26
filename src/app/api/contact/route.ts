@@ -27,15 +27,15 @@ export async function POST(request: Request) {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-                user: 'info@nirvanawealthplanner.com',
+                user: 'info@nirvanawise.in',
                 pass: process.env.ZOHO_APP_PASSWORD,
             },
         });
 
         // Email content
         const mailOptions = {
-            from: '"Nirvana Wise Wealth Website" <info@nirvanawealthplanner.com>',
-            to: 'info@nirvanawealthplanner.com',
+            from: '"Nirvana Wise Wealth Website" <info@nirvanawise.in>',
+            to: 'info@nirvanawise.in',
             replyTo: email,
             subject: `New Contact Form Submission from ${name}`,
             text: `
