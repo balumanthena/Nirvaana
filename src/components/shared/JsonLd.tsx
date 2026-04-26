@@ -50,7 +50,7 @@ export function JsonLd() {
             }
         ],
         sameAs: [
-            CONFIG.SOCIAL_LINKS.LINKEDIN,
+            CONFIG.SOCIAL_LINKS.INSTAGRAM,
             CONFIG.SOCIAL_LINKS.TWITTER,
             CONFIG.WHATSAPP_URL
         ],
