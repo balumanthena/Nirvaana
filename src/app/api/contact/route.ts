@@ -22,7 +22,7 @@ export async function POST(request: Request) {
         // 2. Transporter Setup with Fallback
         const createTransporter = async (port: number, secure: boolean) => {
             const transporter = nodemailer.createTransport({
-                host: 'smtp.zoho.com',
+                host: 'smtp.zoho.in',
                 port,
                 secure,
                 auth: {
