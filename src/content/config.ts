@@ -1,6 +1,6 @@
 export const CONFIG = {
   BRAND_NAME: "Nirvana Wise Wealth",
-  TAGLINE: "AMFI registered Mutual Fund Distributor.Reg No ARN-353900 ",
+  TAGLINE: "AMFI registered Mutual Fund Distributor. Reg No ARN-353900 ",
   SITE_URL: "https://nirvanawise.in/",
   EMAIL: "info@nirvanawise.in",
   PHONE: "+91 9182026548",
@@ -27,8 +27,8 @@ export const CONFIG = {
   CALENDLY_URL: "https://calendly.com/nirvanawealthplanner-info/new-meeting",
   WHATSAPP_URL: "https://wa.me/919182026548",
   SOCIAL_LINKS: {
-    LINKEDIN: "#",
-    TWITTER: "#"
+    TWITTER: "https://x.com/NirvanaWealth",
+    INSTAGRAM: "https://instagram.com/nirvanawisewealth"
   },
   GA_MEASUREMENT_ID: "G-S3GBM96ZTC", // Update this with your actual Google Analytics ID from the dashboard
 }

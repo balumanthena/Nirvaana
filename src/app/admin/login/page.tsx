@@ -8,12 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { CONFIG } from "@/content/config";
-import { Lock, Mail, ArrowRight, ShieldCheck, Loader2 } from "lucide-react";
+import { Lock, Mail, ArrowRight, ShieldCheck, Loader2, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 
 export default function AdminLoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [resetSent, setResetSent] = useState(false);
@@ -178,13 +179,20 @@ export default function AdminLoginPage() {
                                     <Lock className="h-5 w-5" />
                                 </div>
                                 <Input
-                                    className="pl-12 h-14 bg-white border-slate-200 focus-visible:ring-amber-200 focus-visible:border-amber-500 transition-all rounded-xl"
-                                    type="password"
+                                    className="pl-12 pr-12 h-14 bg-white border-slate-200 focus-visible:ring-amber-200 focus-visible:border-amber-500 transition-all rounded-xl"
+                                    type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                     placeholder="••••••••"
                                 />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors focus:outline-none"
+                                >
+                                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                                </button>
                             </div>
                         </div>
 

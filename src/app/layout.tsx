@@ -13,7 +13,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 
 export const metadata: Metadata = {
   title: {
-    default: "Nirvana Wise Wealth | Financial Planning Advisor",
+    default: "Nirvana Wise Wealth | AMFI registered Mutual Fund Distributor",
     template: `%s | Nirvana Wise Wealth`,
   },
   description: "Nirvana Wise Wealth offers personalized financial planning and investment advice. Secure your future with our expert guidance.",

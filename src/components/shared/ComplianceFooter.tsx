@@ -4,7 +4,7 @@ import NextImage from "next/image";
 import Link from "next/link";
 import { CONFIG } from "@/content/config";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Twitter, Instagram } from "lucide-react";
 
 import { usePathname } from "next/navigation";
 
@@ -31,11 +31,11 @@ export function ComplianceFooter() {
                             {CONFIG.TAGLINE}
                         </p>
                         <div className="flex items-center gap-4">
-                            <a href={CONFIG.SOCIAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-300">
-                                <Linkedin className="w-4 h-4" />
-                            </a>
                             <a href={CONFIG.SOCIAL_LINKS.TWITTER} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-300">
                                 <Twitter className="w-4 h-4" />
+                            </a>
+                            <a href={CONFIG.SOCIAL_LINKS.INSTAGRAM} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all duration-300">
+                                <Instagram className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
@@ -73,7 +73,9 @@ export function ComplianceFooter() {
                                 </div>
                                 <div className="flex items-start gap-3">
                                     <Mail className="w-4 h-4 text-primary shrink-0 mt-1" />
-                                    <p>{CONFIG.EMAIL}</p>
+                                    <a href={`mailto:${CONFIG.EMAIL}`} className="hover:text-primary transition-colors">
+                                        {CONFIG.EMAIL}
+                                    </a>
                                 </div>
                             </div>
 
