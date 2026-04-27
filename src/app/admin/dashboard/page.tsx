@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { subscribeToBlogs, BlogPost, deleteBlog } from "@/lib/blog-db";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Plus, Edit, Trash, ExternalLink, LogOut, Loader2, RefreshCw, Search, Eye, Clock, Sparkles } from "lucide-react";
+import { Plus, Edit, Trash, ExternalLink, LogOut, Loader2, RefreshCw, Search, Eye, Clock, Sparkles, Users } from "lucide-react";
 import Link from "next/link";
 import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
@@ -22,9 +22,17 @@ export default function AdminDashboard() {
     const blogsPerPage = 5;
 
     useEffect(() => {
-        if (!authLoading && !user) {
-            router.push("/admin/login");
-        }
+        const checkVerification = async () => {
+            if (!authLoading) {
+                if (!user) {
+                    router.push("/admin/login");
+                } else if (!user.emailVerified) {
+                    await signOut(auth);
+                    router.push("/admin/login");
+                }
+            }
+        };
+        checkVerification();
     }, [user, authLoading, router]);
 
     useEffect(() => {
@@ -95,6 +103,11 @@ export default function AdminDashboard() {
                         <Link href="/admin/import">
                             <Button variant="outline" className="rounded-full px-6 border-slate-300">
                                 <RefreshCw className="w-4 h-4 mr-2" /> Bulk Import
+                            </Button>
+                        </Link>
+                        <Link href="/admin/users">
+                            <Button variant="outline" className="rounded-full px-6 border-slate-300">
+                                <Users className="w-4 h-4 mr-2" /> Manage Team
                             </Button>
                         </Link>
                         <Link href="/admin/blog/new">

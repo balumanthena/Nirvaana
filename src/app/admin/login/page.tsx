@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { signInWithEmailAndPassword, sendPasswordResetEmail, signOut, sendEmailVerification, User } from "firebase/auth";
+import { auth, db } from "@/lib/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,22 +19,65 @@ export default function AdminLoginPage() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [resetSent, setResetSent] = useState(false);
+    const [unverifiedUser, setUnverifiedUser] = useState<User | null>(null);
+    const [verificationSent, setVerificationSent] = useState(false);
     const router = useRouter();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
         setLoading(true);
+        setUnverifiedUser(null);
+        setVerificationSent(false);
 
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            
+            if (!userCredential.user.emailVerified) {
+                // Store the unverified user object temporarily to allow resending
+                setUnverifiedUser(userCredential.user);
+                
+                // Immediately sign them out to protect the dashboard
+                await signOut(auth);
+                
+                setError("Please verify your email before logging in.");
+                setLoading(false);
+                return;
+            } else {
+                // Ensure the status is set to active in Firestore for the Team Management page
+                try {
+                    await updateDoc(doc(db, "admin_users", userCredential.user.uid), {
+                        status: "active"
+                    });
+                } catch (updateError) {
+                    console.error("Failed to sync active status to Firestore:", updateError);
+                    // Non-blocking error, continue to dashboard
+                }
+            }
+            
             router.push("/admin/dashboard");
         } catch (err: any) {
-            setError(err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password'
+            setError(err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential'
                 ? "Invalid credentials. Please try again."
                 : "An error occurred. Please try again later.");
         } finally {
-            setLoading(false);
+            if (!unverifiedUser) {
+                setLoading(false);
+            }
+        }
+    };
+    
+    const handleResendVerification = async () => {
+        if (!unverifiedUser) return;
+        
+        try {
+            await sendEmailVerification(unverifiedUser);
+            setVerificationSent(true);
+            setUnverifiedUser(null);
+            setError("");
+        } catch (err: any) {
+            console.error(err);
+            setError("Failed to send verification email. Please try again later.");
         }
     };
     const handleForgotPassword = async () => {
@@ -169,9 +213,9 @@ export default function AdminLoginPage() {
                                 <button
                                     type="button"
                                     onClick={handleForgotPassword}
-                                    className="text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+                                    className="text-sm font-bold text-amber-600 hover:text-amber-700 hover:underline transition-all"
                                 >
-                                    Forgot?
+                                    Forgot Password?
                                 </button>
                             </div>
                             <div className="relative group">
@@ -205,7 +249,29 @@ export default function AdminLoginPage() {
                                     className="p-4 bg-red-50 border border-red-100 rounded-xl flex items-center gap-3 text-red-600 text-sm"
                                 >
                                     <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                                    {error}
+                                    <div className="flex-grow">
+                                        <p>{error}</p>
+                                        {unverifiedUser && (
+                                            <button
+                                                type="button"
+                                                onClick={handleResendVerification}
+                                                className="mt-2 text-red-700 underline font-semibold hover:text-red-800"
+                                            >
+                                                Resend Verification Email
+                                            </button>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            )}
+                            {verificationSent && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="p-4 bg-green-50 border border-green-100 rounded-xl flex items-center gap-3 text-green-700 text-sm mb-4"
+                                >
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                    Verification email resent! Please check your inbox.
                                 </motion.div>
                             )}
                             {resetSent && (
